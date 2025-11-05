@@ -207,7 +207,7 @@ a {
   .menu_linkall {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 13px;
+    gap: 14px;
     margin-bottom: 20px;
     width: 100%;
     text-align: center;
