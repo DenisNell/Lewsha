@@ -111,7 +111,7 @@ a {
   transition: all 0.5s ease;
 }
 
-.main{
+.main {
   display: none;
 }
 
@@ -139,14 +139,18 @@ a {
     top: 20px;
     animation: burger-pulse 2s infinite ease-in-out;
   }
+
   @keyframes burger-pulse {
-    0%, 100% {
-        transform: scale(1);
+
+    0%,
+    100% {
+      transform: scale(1);
     }
+
     50% {
-        transform: scale(1.1);
+      transform: scale(1.1);
     }
-}
+  }
 
   .burger-menu span {
     display: block;
@@ -220,42 +224,46 @@ a {
   .main {
     display: block;
   }
+
   .main_imageBox {
     display: grid;
     justify-items: center;
     grid-template-columns: 1fr;
   }
-  .main_imageCard{
-    margin: 0 auto;
+
+  .main_imageCard {
+    /* margin: 0 auto; */
     padding-top: 65px;
     position: relative;
   }
-  .image_none{
+
+  .image_none {
     display: block;
     width: 200px;
     height: 500px;
     background-color: #2f2e2e;
   }
-  .main_icon{
+
+  .main_icon {
     position: absolute;
     height: 50px;
     width: 50px;
     top: 514px;
     left: 150px;
-    opacity: 0.6;
+    opacity: 0.4;
     animation: burger-pulse 2s infinite ease-in-out;
   }
-  .main_image{
-  }
-  #image1{
+
+  .main_image1 {
     transition: opacity 1s ease;
   }
-  #image2 {
+
+  .main_image2 {
     position: absolute;
     opacity: 0;
     top: 65px;
     left: 0;
     transition: opacity 1s ease;
-}
+  }
 
-}    
+}

@@ -39,15 +39,25 @@ document.addEventListener('keydown', (e) => {
 });
 
 
-function toggleImages() {
-  const img1 = document.getElementById('image1');
-  const img2 = document.getElementById('image2');
+document.addEventListener('DOMContentLoaded', function() {
+  // Получаем все карточки с изображениями
+  const imageCards = document.querySelectorAll('.main_imageCard');
   
-  if (img1.style.opacity !== '0') {
-      img1.style.opacity = '0';
-      img2.style.opacity = '1';
-  } else {
-      img1.style.opacity = '1';
-      img2.style.opacity = '0';
-  }
-}
+  // Для каждой карточки добавляем обработчик клика
+  imageCards.forEach(card => {
+      card.addEventListener('click', function() {
+          // Находим изображения внутри текущей карточки
+          const image1 = this.querySelector('.main_image1');
+          const image2 = this.querySelector('.main_image2');
+          
+          // Переключаем видимость изображений
+          if (image1.style.opacity !== '0') {
+              image1.style.opacity = '0';
+              image2.style.opacity = '1';
+          } else {
+              image1.style.opacity = '1';
+              image2.style.opacity = '0';
+          }
+      });
+  });
+});
