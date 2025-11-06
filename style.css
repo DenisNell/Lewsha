@@ -227,6 +227,12 @@ a {
   }
   .main_imageCard{
     margin: 0 auto;
-    padding-top: 50px;
+    padding-top: 65px;
+  }
+  .image_none{
+    display: block;
+    width: 200px;
+    height: 500px;
+    background-color: #2f2e2e;
   }
 }    
