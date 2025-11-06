@@ -37,3 +37,17 @@ document.addEventListener('keydown', (e) => {
     toggleMenu();
   }
 });
+
+
+function toggleImages() {
+  const img1 = document.getElementById('image1');
+  const img2 = document.getElementById('image2');
+  
+  if (img1.style.opacity !== '0') {
+      img1.style.opacity = '0';
+      img2.style.opacity = '1';
+  } else {
+      img1.style.opacity = '1';
+      img2.style.opacity = '0';
+  }
+}

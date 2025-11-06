@@ -228,6 +228,7 @@ a {
   .main_imageCard{
     margin: 0 auto;
     padding-top: 65px;
+    position: relative;
   }
   .image_none{
     display: block;
@@ -235,4 +236,26 @@ a {
     height: 500px;
     background-color: #2f2e2e;
   }
+  .main_icon{
+    position: absolute;
+    height: 50px;
+    width: 50px;
+    top: 514px;
+    left: 150px;
+    opacity: 0.6;
+    animation: burger-pulse 2s infinite ease-in-out;
+  }
+  .main_image{
+  }
+  #image1{
+    transition: opacity 1s ease;
+  }
+  #image2 {
+    position: absolute;
+    opacity: 0;
+    top: 65px;
+    left: 0;
+    transition: opacity 1s ease;
+}
+
 }    
