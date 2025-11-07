@@ -125,7 +125,9 @@ a {
     z-index: 1000;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   }
-
+  .menu_logo{
+    margin-top: 3px;
+  }
   .burger-menu {
     display: flex;
     flex-direction: column;
@@ -135,7 +137,7 @@ a {
     cursor: pointer;
     position: absolute;
     right: 20px;
-    top: 20px;
+    top: 16px;
     animation: burger-pulse 2s infinite ease-in-out;
   }
 
@@ -246,9 +248,9 @@ a {
     position: absolute;
     height: 50px;
     width: 50px;
-    top: 514px;
-    left: 150px;
-    opacity: 0.2;
+    top: 513px;
+    left: 158px;
+    opacity: 0.5;
     animation: burger-pulse 2s infinite ease-in-out;
   }
 
