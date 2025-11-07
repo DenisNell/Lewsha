@@ -138,20 +138,19 @@ a {
     position: absolute;
     right: 20px;
     top: 16px;
-    animation: burger-pulse 2s infinite ease-in-out;
+    animation: shake 2s infinite ease-in-out;
   }
 
-  @keyframes burger-pulse {
-
-    0%,
-    100% {
-      transform: scale(1);
-    }
-
-    50% {
-      transform: scale(1.1);
-    }
+  @keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.1); }
   }
+
+  @keyframes shake {
+    0%, 100% { transform: translateY(0); }
+    10%, 30%, 50%, 70%, 90% { transform: translateY(-1px); }
+    20%, 40%, 60%, 80% { transform: translatey(1px); }
+}
 
   .burger-menu span {
     display: block;
@@ -251,7 +250,7 @@ a {
     top: 513px;
     left: 158px;
     opacity: 0.5;
-    animation: burger-pulse 2s infinite ease-in-out;
+    animation: pulse 2s infinite ease-in-out;
   }
 
   .main_image1 {
