@@ -124,7 +124,6 @@ a {
     background: white;
     z-index: 1000;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    /* padding-bottom: 7px; */
   }
 
   .burger-menu {
@@ -232,7 +231,6 @@ a {
   }
 
   .main_imageCard {
-    /* margin: 0 auto; */
     padding-top: 65px;
     position: relative;
   }
@@ -241,7 +239,7 @@ a {
     display: block;
     width: 200px;
     height: 500px;
-    background-color: #2f2e2e;
+    background-color: #d8d8d5;
   }
 
   .main_icon {
