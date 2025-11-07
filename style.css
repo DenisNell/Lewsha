@@ -138,19 +138,23 @@ a {
     position: absolute;
     right: 20px;
     top: 16px;
-    animation: shake 2s infinite ease-in-out;
+    animation: shake 0.5s infinite ease-in-out;
   }
 
   @keyframes pulse {
-    0%, 100% { transform: scale(1); }
-    50% { transform: scale(1.1); }
+    0%, 100%{ transform: scale(1.1); opacity: 0;}
+    50% { transform: scale(1); opacity: 0.5;}
   }
 
   @keyframes shake {
-    0%, 100% { transform: translateY(0); }
-    10%, 30%, 50%, 70%, 90% { transform: translateY(-1px); }
-    20%, 40%, 60%, 80% { transform: translatey(1px); }
-}
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-1px); }
+  }
+
+  @keyframes tossing{
+    0%, 100% {transform: rotate(-8deg);}
+    50% {transform: rotate(8deg);}
+  }
 
   .burger-menu span {
     display: block;
