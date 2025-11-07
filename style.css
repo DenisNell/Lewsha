@@ -250,7 +250,7 @@ a {
     width: 50px;
     top: 514px;
     left: 150px;
-    opacity: 0.4;
+    opacity: 0.2;
     animation: burger-pulse 2s infinite ease-in-out;
   }
 
