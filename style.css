@@ -40,11 +40,6 @@ a {
   cursor: pointer;
 }
 
-.container {
-  max-width: 1440px;
-  margin: 0 auto;
-}
-
 .title {
   font-family: var(--font-family);
   font-weight: 600;
@@ -53,69 +48,63 @@ a {
   color: var(--general);
 }
 
-.p_text {
-  font-family: var(--font-family);
-  font-weight: 400;
-  font-size: 19px;
-  color: var(--general);
-}
-
-/* Меню и навигация */
-.label {}
-
-.menu_ContainerFlex {
-  display: none;
-  max-width: 1241px;
-  margin: 0 auto;
-  justify-content: space-between;
-  padding: 47px 15px;
-}
-
-.menu_Logo {
-  font-family: var(--third-family);
-  font-weight: 600;
-  font-size: 42px;
-  color: var(--general);
-}
-
-.menu_containerLink {
-  display: flex;
-  align-items: center;
-  gap: 80px;
-}
-
-.menu_containerLink ul {
-  display: grid;
-  max-width: 580px;
-  width: 100%;
-  align-items: center;
-}
-
 .menu_link {
   font-family: var(--second-family);
   font-weight: 700;
   font-size: 20px;
   text-align: center;
   color: var(--general);
-  padding: 5px;
-  border: 2px solid #fff;
-  transition: all 0.1s ease;
 }
 
-.menu_link:hover {
-  border-bottom: 3px solid #000;
+@keyframes pulse {
+
+  0%,
+  100% {
+    transform: scale(1.1);
+    opacity: 0;
+  }
+
+  50% {
+    transform: scale(1);
+    opacity: 0.5;
+  }
 }
 
-.menu_icon:hover {
-  scale: 1.3;
-  transition: all 0.5s ease;
+@keyframes shake {
+
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+
+  50% {
+    transform: translateY(-1px);
+  }
 }
 
-.main {
+@keyframes tossing {
+
+  0%,
+  100% {
+    transform: rotate(-8deg);
+  }
+
+  50% {
+    transform: rotate(8deg);
+  }
+}
+
+.main,
+.menu {
   display: none;
 }
 
+.label {}
+
 @media screen and (max-width: 768px) {
+  .menu{
+    display: block;
+  }
   .menubox {
     position: fixed;
     top: 0;
@@ -125,9 +114,17 @@ a {
     z-index: 1000;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   }
-  .menu_logo{
+
+  .menu_link {
+    padding: 5px;
+    border: 2px solid #fff;
+    transition: all 0.1s ease;
+  }
+
+  .menu_logo {
     margin-top: 3px;
   }
+
   .burger-menu {
     display: flex;
     flex-direction: column;
@@ -139,21 +136,6 @@ a {
     right: 20px;
     top: 16px;
     animation: shake 0.5s infinite ease-in-out;
-  }
-
-  @keyframes pulse {
-    0%, 100%{ transform: scale(1.1); opacity: 0;}
-    50% { transform: scale(1); opacity: 0.5;}
-  }
-
-  @keyframes shake {
-    0%, 100% { transform: translateY(0px); }
-    50% { transform: translateY(-1px); }
-  }
-
-  @keyframes tossing{
-    0%, 100% {transform: rotate(-8deg);}
-    50% {transform: rotate(8deg);}
   }
 
   .burger-menu span {
@@ -177,7 +159,6 @@ a {
   .burger-menu.active span:nth-child(3) {
     transform: rotate(-45deg) translate(6px, -6px);
   }
-
   /* Конец анимации */
 
   .menu_ContainerFlex {
