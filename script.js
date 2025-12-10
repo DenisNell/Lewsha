@@ -1,6 +1,10 @@
 // Получаем элементы
 const burgerMenu = document.getElementById('burgerMenu');
 const menuContainer = document.querySelector('.menu_containerLink');
+const buttonSimple = document.querySelector('.button_simple');
+const buttonPatina = document.querySelector('.button_patina');
+const menuSimple = document.querySelector('.menu_simple');
+const menuPatina = document.querySelector('.menu_patina');
 
 // Функция для переключения меню
 function toggleMenu() {
@@ -11,6 +15,15 @@ function toggleMenu() {
   document.body.style.overflow = menuContainer.classList.contains('active') ? 'hidden' : '';
 }
 
+//Функция для переключения кнопок меню
+function toggleButton(){
+  menuSimple.classList.toggle('active');
+  menuPatina.classList.toggle('active');
+}
+buttonSimple.addEventListener('click', toggleButton);
+
+
+
 // Событие клика по бургер-меню
 burgerMenu.addEventListener('click', toggleMenu);
 
@@ -20,6 +33,8 @@ menuLinks.forEach(link => {
   link.addEventListener('click', () => {
     menuContainer.classList.remove('active');
     burgerMenu.classList.remove('active');
+    menuSimple.classList.remove('active');
+    menuPatina.classList.remove('active');
     document.body.style.overflow = '';
   });
 });
@@ -28,6 +43,8 @@ menuLinks.forEach(link => {
 document.addEventListener('click', (e) => {
   if (!menuContainer.contains(e.target) && !burgerMenu.contains(e.target) && menuContainer.classList.contains('active')) {
     toggleMenu();
+    menuSimple.classList.remove('active');
+    menuPatina.classList.remove('active');
   }
 });
 
@@ -35,6 +52,8 @@ document.addEventListener('click', (e) => {
 document.addEventListener('keydown', (e) => {
   if (e.key === 'Escape' && menuContainer.classList.contains('active')) {
     toggleMenu();
+    menuSimple.classList.remove('active');
+    menuPatina.classList.remove('active');
   }
 });
 
