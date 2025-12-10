@@ -5,11 +5,13 @@ const buttonSimple = document.querySelector('.button_simple');
 const buttonPatina = document.querySelector('.button_patina');
 const menuSimple = document.querySelector('.menu_simple');
 const menuPatina = document.querySelector('.menu_patina');
+const mainShadow = document.querySelector('.main');
 
 // Функция для переключения меню
 function toggleMenu() {
   menuContainer.classList.toggle('active');
   burgerMenu.classList.toggle('active');
+  mainShadow.classList.toggle('active');
 
   // Блокировка прокрутки body при открытом меню
   document.body.style.overflow = menuContainer.classList.contains('active') ? 'hidden' : '';

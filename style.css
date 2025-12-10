@@ -250,6 +250,12 @@ a {
 
   .main {
     display: block;
+    transition: opacity 0.3s, visibility 0.5s;
+  }
+  .main.active{
+    background: rgba(0, 0, 0, 0.5);
+    opacity: 0.5;
+    transition: opacity 0.3s, visibility 0.5s;
   }
 
   .main_imageBox {
