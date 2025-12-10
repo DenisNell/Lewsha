@@ -37,6 +37,7 @@ menuLinks.forEach(link => {
     burgerMenu.classList.remove('active');
     menuSimple.classList.remove('active');
     menuPatina.classList.remove('active');
+    mainShadow.classList.remove('active')
     document.body.style.overflow = '';
   });
 });
@@ -47,6 +48,7 @@ document.addEventListener('click', (e) => {
     toggleMenu();
     menuSimple.classList.remove('active');
     menuPatina.classList.remove('active');
+    mainShadow.classList.remove('active')
   }
 });
 
