@@ -3,8 +3,10 @@ const burgerMenu = document.getElementById('burgerMenu');
 const menuContainer = document.querySelector('.menu_containerLink');
 const buttonSimple = document.querySelector('.button_simple');
 const buttonPatina = document.querySelector('.button_patina');
+const buttonSkin = document.querySelector('.button_skin');
 const menuSimple = document.querySelector('.menu_simple');
 const menuPatina = document.querySelector('.menu_patina');
+const menuSkin = document.querySelector('.menu_skin');
 const mainShadow = document.querySelector('.main');
 
 // Функция для переключения меню
@@ -17,12 +19,24 @@ function toggleMenu() {
   document.body.style.overflow = menuContainer.classList.contains('active') ? 'hidden' : '';
 }
 
-//Функция для переключения кнопок меню
-function toggleButton(){
-  menuSimple.classList.toggle('active');
+// Функции для переключения кнопок меню
+function togglePatina(){
   menuPatina.classList.toggle('active');
+  buttonPatina.classList.toggle('active');
 }
-buttonSimple.addEventListener('click', toggleButton);
+buttonPatina.addEventListener('click', togglePatina);
+
+function toggleSimple(){
+  menuSimple.classList.toggle('active');
+  buttonSimple.classList.toggle('active');
+}
+buttonSimple.addEventListener('click', toggleSimple);
+
+function toggleSkin(){
+  menuSkin.classList.toggle('active');
+  buttonSkin.classList.toggle('active');
+}
+buttonSkin.addEventListener('click', toggleSkin);
 
 
 
@@ -35,8 +49,6 @@ menuLinks.forEach(link => {
   link.addEventListener('click', () => {
     menuContainer.classList.remove('active');
     burgerMenu.classList.remove('active');
-    menuSimple.classList.remove('active');
-    menuPatina.classList.remove('active');
     mainShadow.classList.remove('active')
     document.body.style.overflow = '';
   });
@@ -46,8 +58,6 @@ menuLinks.forEach(link => {
 document.addEventListener('click', (e) => {
   if (!menuContainer.contains(e.target) && !burgerMenu.contains(e.target) && menuContainer.classList.contains('active')) {
     toggleMenu();
-    menuSimple.classList.remove('active');
-    menuPatina.classList.remove('active');
     mainShadow.classList.remove('active')
   }
 });
@@ -56,8 +66,6 @@ document.addEventListener('click', (e) => {
 document.addEventListener('keydown', (e) => {
   if (e.key === 'Escape' && menuContainer.classList.contains('active')) {
     toggleMenu();
-    menuSimple.classList.remove('active');
-    menuPatina.classList.remove('active');
   }
 });
 
