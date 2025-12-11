@@ -118,7 +118,6 @@ a {
   }
 
   .menu_link {
-    padding: 5px;
     border: 2px solid #fff;
     transition: all 0.1s ease;
   }
@@ -144,6 +143,7 @@ a {
     padding: 10px;
     border-radius: 10px;
     background-color: #f0812c;
+    box-shadow: 0 0 15px 3px #f0812c;
     font-weight: bold;
     font-size: 16px;
   }
@@ -152,6 +152,7 @@ a {
   .button_patina.active,
   .button_skin.active {
     background-color: #eee1d7;
+    box-shadow: none;
   }
 
   .menu_simple,
@@ -195,6 +196,7 @@ a {
     background-color: var(--general);
     border-radius: 2px;
     transition: all 0.3s ease;
+    box-shadow: 0 0 10px 3px #f0812c;
   }
 
   .menu_ContainerFlex {
