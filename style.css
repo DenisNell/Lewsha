@@ -159,7 +159,7 @@ a {
   .menu_linkall{
     width: 100%;
     max-height: 90vh; /* ограничиваем высоту */
-    overflow: auto;
+    overflow-y: auto;
   }
 
   .menu_simple,
