@@ -33,7 +33,7 @@ li {
 }
 
 li {
-  list-style: none;
+  list-style: none;  
 }
 
 a {
@@ -47,6 +47,7 @@ a {
   font-size: 32px;
   text-align: center;
   color: var(--general);
+  text-shadow: 0 0 10px #f5b17d;
 }
 
 .menu_link {
@@ -55,6 +56,7 @@ a {
   font-size: 20px;
   text-align: center;
   color: var(--general);
+  /* text-shadow: 0 0 10px #f4a86d; */
 }
 
 @keyframes pulse {
@@ -143,8 +145,9 @@ a {
     margin: 0 auto;
     padding: 10px;
     border-radius: 10px;
-    background-color: #f0812c;
+    /* background-color: #f0812c; */
     box-shadow: 0 0 15px 3px #f0812c;
+    text-shadow: 0 0 10px #f26a02;
     font-weight: bold;
     font-size: 16px;
   }
@@ -152,13 +155,15 @@ a {
   .button_simple.active,
   .button_patina.active,
   .button_skin.active {
-    background-color: #eee1d7;
+    background-color: #f1ebe7;
     box-shadow: none;
+    text-shadow:none;
+    animation: shake 0.5s infinite ease-in-out;
   }
 
   .menu_linkall{
     width: 100%;
-    max-height: 75vh;
+    max-height: 70vh;
     overflow-y: auto;
   }
 
@@ -221,6 +226,7 @@ a {
     left: 0;
     width: 100%;
     background: white;
+    border-radius: 7px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     padding: 10px;
     z-index: 1000;
@@ -228,6 +234,7 @@ a {
     opacity: 0;
     visibility: hidden;
     transition: none;
+
   }
 
   .menu_containerLink.active {
