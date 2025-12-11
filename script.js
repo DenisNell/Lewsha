@@ -1,15 +1,75 @@
-// Получаем элементы
-const burgerMenu = document.getElementById('burgerMenu');
-const menuContainer = document.querySelector('.menu_containerLink');
+//
+// document.addEventListener('DOMContentLoaded', () => {
+//   // Ваш код здесь
+//   console.log('DOM полностью загружен!');
+// });
+
+
+
+
+// Функции для переключения кнопок меню
 const buttonSimple = document.querySelector('.button_simple');
 const buttonPatina = document.querySelector('.button_patina');
 const buttonSkin = document.querySelector('.button_skin');
 const menuSimple = document.querySelector('.menu_simple');
 const menuPatina = document.querySelector('.menu_patina');
 const menuSkin = document.querySelector('.menu_skin');
-const mainShadow = document.querySelector('.main');
+const imageSkin = document.querySelectorAll('.image_skin');
+const imageSimple = document.querySelectorAll('.image_simple');
+const imagePatina = document.querySelectorAll('.image_patina');
+const defaultImages = document.querySelectorAll('.image_default');
+
+function updateDefaultImages() {
+  const allActive = buttonSimple.classList.contains('active') && 
+                    buttonPatina.classList.contains('active') && 
+                    buttonSkin.classList.contains('active');
+  
+  defaultImages.forEach(img => {
+    if (allActive) {
+      img.classList.add('active');
+    } else {
+      img.classList.remove('active');
+    }
+  });
+}
+
+
+
+function togglePatina(){
+  menuPatina.classList.toggle('active');
+  buttonPatina.classList.toggle('active');
+  imagePatina.forEach(patina => {
+    patina.classList.toggle('active');
+  });  
+  updateDefaultImages();
+}
+buttonPatina.addEventListener('click', togglePatina);
+
+function toggleSimple(){
+  menuSimple.classList.toggle('active');
+  buttonSimple.classList.toggle('active');
+  imageSimple.forEach(simple => {
+    simple.classList.toggle('active');
+  }); 
+  updateDefaultImages(); 
+}
+buttonSimple.addEventListener('click', toggleSimple);
+
+function toggleSkin(){
+  menuSkin.classList.toggle('active');
+  buttonSkin.classList.toggle('active');
+  imageSkin.forEach(skin => {
+    skin.classList.toggle('active');
+  });  
+  updateDefaultImages();
+}
+buttonSkin.addEventListener('click', toggleSkin);
+
 
 // Функция для переключения меню
+const burgerMenu = document.getElementById('burgerMenu');
+const menuContainer = document.querySelector('.menu_containerLink');
+const mainShadow = document.querySelector('.main');
 function toggleMenu() {
   menuContainer.classList.toggle('active');
   burgerMenu.classList.toggle('active');
@@ -18,27 +78,6 @@ function toggleMenu() {
   // Блокировка прокрутки body при открытом меню
   document.body.style.overflow = menuContainer.classList.contains('active') ? 'hidden' : '';
 }
-
-// Функции для переключения кнопок меню
-function togglePatina(){
-  menuPatina.classList.toggle('active');
-  buttonPatina.classList.toggle('active');
-}
-buttonPatina.addEventListener('click', togglePatina);
-
-function toggleSimple(){
-  menuSimple.classList.toggle('active');
-  buttonSimple.classList.toggle('active');
-}
-buttonSimple.addEventListener('click', toggleSimple);
-
-function toggleSkin(){
-  menuSkin.classList.toggle('active');
-  buttonSkin.classList.toggle('active');
-}
-buttonSkin.addEventListener('click', toggleSkin);
-
-
 
 // Событие клика по бургер-меню
 burgerMenu.addEventListener('click', toggleMenu);

@@ -313,5 +313,34 @@ a {
     left: 0;
     transition: opacity 1s ease;
   }
+  .image_skin{
+    display: block;
+  }
+  .image_skin.active{
+    display: none;
+  }
 
+  .image_simple{
+    display: block;
+  }
+
+  .image_simple.active{
+    display: none;
+  }
+
+  .image_patina{
+    display: block;
+  }
+  .image_patina.active{
+    display: none;
+  }
+
+  .image_default{
+    display: none;
+    padding-top: 200px;
+  }
+
+.image_default.active{
+  display: block;
+}
 }
