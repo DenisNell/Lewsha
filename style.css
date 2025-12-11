@@ -156,6 +156,12 @@ a {
     box-shadow: none;
   }
 
+  .menu_linkall{
+    width: 100%;
+    max-height: 90vh; /* ограничиваем высоту */
+    overflow: auto;
+  }
+
   .menu_simple,
   .menu_skin,
   .menu_patina {
