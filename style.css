@@ -56,7 +56,6 @@ a {
   font-size: 20px;
   text-align: center;
   color: var(--general);
-  /* text-shadow: 0 0 10px #f4a86d; */
 }
 
 @keyframes pulse {

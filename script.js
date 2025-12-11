@@ -1,13 +1,5 @@
-//
-// document.addEventListener('DOMContentLoaded', () => {
-//   // Ваш код здесь
-//   console.log('DOM полностью загружен!');
-// });
 
-
-
-
-// Функции для переключения кнопок меню
+// Функции для переключения кнопок меню и скрыть картинки по выбору
 const buttonSimple = document.querySelector('.button_simple');
 const buttonPatina = document.querySelector('.button_patina');
 const buttonSkin = document.querySelector('.button_skin');
@@ -32,8 +24,6 @@ function updateDefaultImages() {
     }
   });
 }
-
-
 
 function togglePatina(){
   menuPatina.classList.toggle('active');
