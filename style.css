@@ -3,7 +3,7 @@
   --second-family: "Inter", sans-serif;
   --third-family: "Barlow", sans-serif;
 
-  --white: #fafafa;
+  --white: #fff;
   --black: #000;
   --general: #2f2e2e;
 }
@@ -33,7 +33,7 @@ li {
 }
 
 li {
-  list-style: none;  
+  list-style: none;
 }
 
 a {
@@ -101,10 +101,28 @@ a {
   display: none;
 }
 
+.pc_image {
+  display: block;
+  margin: 0 auto;
+  padding-top: 200px;
+}
+
+.pc_text {
+  padding: 20px;
+  font-family: var(--second-family);
+  max-width: 250px;
+  text-align: center;
+  margin: 0 auto;
+}
+
 
 .label {}
 
 @media screen and (max-width: 1024px) {
+  .pc_block {
+    display: none;
+  }
+
   .menu {
     display: block;
   }
@@ -114,7 +132,7 @@ a {
     top: 0;
     left: 0;
     width: 100%;
-    background: white;
+    background: rgb(249, 236, 227);
     z-index: 1000;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   }
@@ -144,7 +162,6 @@ a {
     margin: 0 auto;
     padding: 10px;
     border-radius: 10px;
-    /* background-color: #f0812c; */
     box-shadow: 0 0 15px 3px #f0812c;
     text-shadow: 0 0 10px #f26a02;
     font-weight: bold;
@@ -156,11 +173,11 @@ a {
   .button_skin.active {
     background-color: #f1ebe7;
     box-shadow: none;
-    text-shadow:none;
+    text-shadow: none;
     animation: shake 0.5s infinite ease-in-out;
   }
 
-  .menu_linkall{
+  .menu_linkall {
     width: 100%;
     max-height: 70vh;
     overflow-y: auto;
@@ -225,7 +242,7 @@ a {
     left: 0;
     width: 100%;
     background: white;
-    border-radius: 7px;
+    border-radius:0 0 10px 10px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     padding: 10px;
     z-index: 1000;
@@ -269,10 +286,12 @@ a {
     opacity: 0.5;
     transition: opacity 0.3s, visibility 0.5s;
   }
-  p span{
+
+  p span {
     font-size: 20px;
     line-height: 1px;
   }
+
   .main_imageBox {
     display: grid;
     justify-items: center;
@@ -312,34 +331,34 @@ a {
     left: 0;
     transition: opacity 1s ease;
   }
-  .image_skin{
-    display: block;
-  }
-  .image_skin.active{
-    display: none;
-  }
 
-  .image_simple{
+  .image_skin,
+  .image_simple,
+  .image_patina {
     display: block;
   }
 
-  .image_simple.active{
+  .image_skin.active,
+  .image_simple.active,
+  .image_patina.active {
     display: none;
   }
 
-  .image_patina{
-    display: block;
-  }
-  .image_patina.active{
+  .image_default {
     display: none;
-  }
-
-  .image_default{
-    display: none;
+    margin: 0 auto;
     padding-top: 200px;
   }
 
-.image_default.active{
-  display: block;
-}
+  .image_default.active {
+    display: block;
+  }
+  .pic_default{
+    margin: 0 auto;
+  }
+
+  .text_default {
+    padding-top: 20px;
+    margin: 0 auto;
+  }
 }

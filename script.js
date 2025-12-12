@@ -10,6 +10,7 @@ const imageSkin = document.querySelectorAll('.image_skin');
 const imageSimple = document.querySelectorAll('.image_simple');
 const imagePatina = document.querySelectorAll('.image_patina');
 const defaultImages = document.querySelectorAll('.image_default');
+const mainShadow = document.querySelector('.main');
 
 function updateDefaultImages() {
   const allActive = buttonSimple.classList.contains('active') && 
@@ -19,8 +20,10 @@ function updateDefaultImages() {
   defaultImages.forEach(img => {
     if (allActive) {
       img.classList.add('active');
+      mainShadow.classList.remove('active');
     } else {
       img.classList.remove('active');
+      mainShadow.classList.add('active');
     }
   });
 }
@@ -59,7 +62,7 @@ buttonSkin.addEventListener('click', toggleSkin);
 // Функция для переключения меню
 const burgerMenu = document.getElementById('burgerMenu');
 const menuContainer = document.querySelector('.menu_containerLink');
-const mainShadow = document.querySelector('.main');
+
 function toggleMenu() {
   menuContainer.classList.toggle('active');
   burgerMenu.classList.toggle('active');
