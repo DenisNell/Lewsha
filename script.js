@@ -1,5 +1,4 @@
 
-// Функции для переключения кнопок меню и скрыть картинки по выбору
 const buttonSimple = document.querySelector('.button_simple');
 const buttonPatina = document.querySelector('.button_patina');
 const buttonSkin = document.querySelector('.button_skin');
@@ -11,12 +10,17 @@ const imageSimple = document.querySelectorAll('.image_simple');
 const imagePatina = document.querySelectorAll('.image_patina');
 const defaultImages = document.querySelectorAll('.image_default');
 const mainShadow = document.querySelector('.main');
+const burgerMenu = document.getElementById('burgerMenu');
+const menuContainer = document.querySelector('.menu_containerLink');
+const menuLinks = document.querySelectorAll('.menu_link');
+const menuGame = document.querySelector('.menu_game')
 
+// Функции для переключения кнопок меню и скрыть картинки по выбору
 function updateDefaultImages() {
-  const allActive = buttonSimple.classList.contains('active') && 
-                    buttonPatina.classList.contains('active') && 
-                    buttonSkin.classList.contains('active');
-  
+  const allActive = buttonSimple.classList.contains('active') &&
+    buttonPatina.classList.contains('active') &&
+    buttonSkin.classList.contains('active');
+
   defaultImages.forEach(img => {
     if (allActive) {
       img.classList.add('active');
@@ -28,45 +32,44 @@ function updateDefaultImages() {
   });
 }
 
-function togglePatina(){
+function togglePatina() {
   menuPatina.classList.toggle('active');
   buttonPatina.classList.toggle('active');
   imagePatina.forEach(patina => {
     patina.classList.toggle('active');
-  });  
+  });
   updateDefaultImages();
 }
 buttonPatina.addEventListener('click', togglePatina);
 
-function toggleSimple(){
+function toggleSimple() {
   menuSimple.classList.toggle('active');
   buttonSimple.classList.toggle('active');
   imageSimple.forEach(simple => {
     simple.classList.toggle('active');
-  }); 
-  updateDefaultImages(); 
+  });
+  updateDefaultImages();
 }
 buttonSimple.addEventListener('click', toggleSimple);
 
-function toggleSkin(){
+function toggleSkin() {
   menuSkin.classList.toggle('active');
   buttonSkin.classList.toggle('active');
   imageSkin.forEach(skin => {
     skin.classList.toggle('active');
-  });  
+  });
   updateDefaultImages();
 }
 buttonSkin.addEventListener('click', toggleSkin);
 
 
 // Функция для переключения меню
-const burgerMenu = document.getElementById('burgerMenu');
-const menuContainer = document.querySelector('.menu_containerLink');
-
 function toggleMenu() {
   menuContainer.classList.toggle('active');
   burgerMenu.classList.toggle('active');
   mainShadow.classList.toggle('active');
+  menuGame.classList.toggle('active')
+
 
   // Блокировка прокрутки body при открытом меню
   document.body.style.overflow = menuContainer.classList.contains('active') ? 'hidden' : '';
@@ -76,19 +79,19 @@ function toggleMenu() {
 burgerMenu.addEventListener('click', toggleMenu);
 
 // Закрытие меню при клике на ссылку
-const menuLinks = document.querySelectorAll('.menu_link');
 menuLinks.forEach(link => {
   link.addEventListener('click', () => {
     menuContainer.classList.remove('active');
     burgerMenu.classList.remove('active');
     mainShadow.classList.remove('active')
+    menuGame.classList.remove('active')
     document.body.style.overflow = '';
   });
 });
 
 // Закрытие меню при клике вне области меню
 document.addEventListener('click', (e) => {
-  if (!menuContainer.contains(e.target) && !burgerMenu.contains(e.target) && menuContainer.classList.contains('active')) {
+  if (!menuContainer.contains(e.target) && !burgerMenu.contains(e.target) && !menuGame.contains(e.target) && menuContainer.classList.contains('active')) {
     toggleMenu();
     mainShadow.classList.remove('active')
   }
@@ -101,26 +104,83 @@ document.addEventListener('keydown', (e) => {
   }
 });
 
-
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
   // Получаем все карточки с изображениями
   const imageCards = document.querySelectorAll('.main_imageCard');
-  
+
   // Для каждой карточки добавляем обработчик клика
   imageCards.forEach(card => {
-      card.addEventListener('click', function() {
-          // Находим изображения внутри текущей карточки
-          const image1 = this.querySelector('.main_image1');
-          const image2 = this.querySelector('.main_image2');
-          
-          // Переключаем видимость изображений
-          if (image1.style.opacity !== '0') {
-              image1.style.opacity = '0';
-              image2.style.opacity = '1';
-          } else {
-              image1.style.opacity = '1';
-              image2.style.opacity = '0';
-          }
-      });
+    card.addEventListener('click', function () {
+      // Находим изображения внутри текущей карточки
+      const image1 = this.querySelector('.main_image1');
+      const image2 = this.querySelector('.main_image2');
+
+      // Переключаем видимость изображений
+      if (image1.style.opacity !== '0') {
+        image1.style.opacity = '0';
+        image2.style.opacity = '1';
+      } else {
+        image1.style.opacity = '1';
+        image2.style.opacity = '0';
+      }
+    });
   });
+});
+
+// Игра
+
+const buttonGame = document.getElementById('burgerGame');
+
+menuGame.addEventListener('click', () => {
+  buttonGame.classList.add('active')
+  burgerMenu.setAttribute('style', 'display: none;');
+  buttonGame.setAttribute('style', 'display: flex;');
+  menuContainer.classList.remove('active');
+  mainShadow.classList.remove('active')
+})
+
+buttonGame.addEventListener('click', () => {
+  location.reload();
+});
+
+menuGame.addEventListener('click', () => {
+  // Показываем только случайную дверь (только main_image1)
+  const doorImages1 = document.querySelectorAll('.main_image1');
+  const doorImages2 = document.querySelectorAll('.main_image2');
+  const allImagesArray = [...doorImages1, ...doorImages2];
+  const doorsArray = [...new Set(allImagesArray)];
+  
+  if (doorsArray.length === 0) return;
+  
+  // Скрываем все карточки
+  document.querySelectorAll('.main_imageCard').forEach(card => {
+    card.style.display = 'none';
+  });
+
+  document.querySelectorAll('.title').forEach(text => {
+    text.style.display = 'none';
+  });
+  
+  // Показываем случайную дверь
+  const randomDoor = doorsArray[Math.floor(Math.random() * doorsArray.length)];
+  const doorCard = randomDoor.closest('.main_imageCard');
+  
+  if (doorCard) {
+    // Показываем только эту карточку
+    doorCard.style.display = 'block';
+    doorCard.style.margin = '75px auto';
+    doorCard.style.maxWidth = '400px';
+
+    // Скрываем иконку пальца если она есть
+    const icon = doorCard.querySelector('.main_icon');
+    if (icon) icon.style.display = 'none';
+
+    // Скрываем default изображение
+    const defaultImages = doorCard.querySelector('.pic_default');
+    if (defaultImages) defaultImages.style.display = 'none';
+    
+    // Показываем только выбранное изображение
+    // randomDoor.style.display = 'block';
+    // randomDoor.style.width = '100%';
+  }
 });
