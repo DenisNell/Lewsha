@@ -211,9 +211,8 @@ menuGame.addEventListener('click', () => {
   function checkUserInput(event) {
     // Предотвращаем отправку формы и перезагрузку страницы
     if (event) event.preventDefault();
-    
-    const userInput = nameInput.value.trim();
 
+    const userInput = nameInput.value.trim();
     if (userInput.toLowerCase() === doorName.toLowerCase()) {
       console.log('Правильно! Пользователь угадал дверь:', doorName);
       nameInput.value = '';
@@ -233,20 +232,15 @@ menuGame.addEventListener('click', () => {
     }
   }
   
-  // Удаляем старый обработчик и добавляем новый
   const checkButton = document.getElementById('checkButton');
-  
-  // Удаляем все предыдущие обработчики
   const newCheckButton = checkButton.cloneNode(true);
   checkButton.parentNode.replaceChild(newCheckButton, checkButton);
-  
   // Добавляем обработчик на кнопку
   document.getElementById('checkButton').addEventListener('click', function(event) {
     // Предотвращаем поведение по умолчанию для кнопки в форме
     event.preventDefault();
     checkUserInput(event);
   });
-  
   // Также предотвращаем отправку формы по нажатию Enter
   nameInput.addEventListener('keypress', function(event) {
     if (event.key === 'Enter') {
