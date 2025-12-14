@@ -141,6 +141,57 @@ a {
     display: none;
   }
 
+  .form_box {
+    display: none;
+    margin-top: 65px;
+  }
+
+  .form_text {
+    font-family: var(--second-family);
+    font-size: 20px;
+    margin-bottom: 10px;
+    max-width: 230px;
+    text-align: center;
+  }
+
+  .form_input {
+    font-size: 20px;
+    border: 2px solid #000;
+    height: 30px;
+    border-radius: 7px;
+    max-width: 150px;
+    transition: border-color 0.3s ease;
+  }
+  .form_input::placeholder{
+    font-size: 15px;
+    padding-left: 5px;
+    font-style: italic;
+    opacity: 0.8;
+  }
+  .form_input:focus::placeholder {
+    color: transparent;
+  }
+
+  .form_input:focus {
+    outline: #f26a02;
+    box-shadow: 0 0 15px #f26a02;
+  }
+  
+  .form_input:invalid {
+    border-color: #fe0000;
+    box-shadow: 0 0 15px #fe0000;
+  }
+  .form_button {
+    background-color: antiquewhite;
+    height: 30px;
+    border-radius: 7px;
+    cursor: pointer;
+  }
+  .form_button:active {
+    transform: scale(0.90); /* Легкое нажатие */
+  }
+
+
   .menu {
     display: block;
   }
@@ -171,7 +222,7 @@ a {
     margin-top: 3px;
   }
 
-  
+
 
 
   .label {}
@@ -232,7 +283,8 @@ a {
     filter: blur(10px);
     opacity: 0.8;
   }
-  .label{}
+
+  .label {}
 
   .burger-game {
     display: flex;
@@ -254,7 +306,7 @@ a {
     transition: all 0.3s ease;
     box-shadow: 0 0 10px 3px #f0812c;
   }
-  
+
   .burger-game.active span:nth-child(1) {
     transform: rotate(45deg) translate(6px, 6px);
   }
@@ -266,7 +318,7 @@ a {
   .burger-game.active span:nth-child(3) {
     transform: rotate(-45deg) translate(6px, -6px);
   }
-  
+
 
   .label {}
 
@@ -331,7 +383,8 @@ a {
   .menu_patina.active {
     display: none;
   }
-.label{}
+
+  .label {}
 
   .burger-menu {
     display: flex;
@@ -366,7 +419,7 @@ a {
     transform: rotate(-45deg) translate(6px, -6px);
   }
 
-  .label{}
+  .label {}
 
   .menu_containerLink {
     display: flex;
@@ -416,18 +469,15 @@ a {
     justify-items: center;
     grid-template-columns: 1fr;
   }
+  .main_imageBox:last-child{
+    margin-bottom: 150px;
+  }
 
   .main_imageCard {
     padding-top: 65px;
     position: relative;
   }
-
-  .image_none {
-    display: block;
-    width: 200px;
-    height: 500px;
-    background-color: #d8d8d5;
-  }
+  
 
   .main_icon {
     position: absolute;
@@ -449,6 +499,9 @@ a {
     top: 65px;
     left: 0;
     transition: opacity 1s ease;
+  }
+  .main_unknown{
+    display: block;
   }
 
   .image_skin,
@@ -481,4 +534,20 @@ a {
     padding-top: 20px;
     margin: 0 auto;
   }
+  .answer_rigth {
+    display: none;
+  }
+  .text_answer-rigth {
+    color: #00ff00;
+    font-size: 50px;
+
+  }
+  .answer_not-rigth {
+    display: none;
+  }
+  .text_answer_not-rigth {
+    color: #fe0000;
+    font-size: 50px;
+  }
+  
 }

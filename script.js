@@ -130,13 +130,15 @@ document.addEventListener('DOMContentLoaded', function () {
 // Игра
 
 const buttonGame = document.getElementById('burgerGame');
+const form = document.querySelector('.form_box')
 
 menuGame.addEventListener('click', () => {
   buttonGame.classList.add('active')
   burgerMenu.setAttribute('style', 'display: none;');
   buttonGame.setAttribute('style', 'display: flex;');
   menuContainer.classList.remove('active');
-  mainShadow.classList.remove('active')
+  mainShadow.classList.remove('active');
+  form.setAttribute('style', 'display: block;');
 })
 
 buttonGame.addEventListener('click', () => {
@@ -149,27 +151,38 @@ menuGame.addEventListener('click', () => {
   const doorImages2 = document.querySelectorAll('.main_image2');
   const allImagesArray = [...doorImages1, ...doorImages2];
   const doorsArray = [...new Set(allImagesArray)];
-  
+
   if (doorsArray.length === 0) return;
-  
+
   // Скрываем все карточки
   document.querySelectorAll('.main_imageCard').forEach(card => {
     card.style.display = 'none';
   });
 
+  // Скрываем текст карточки
   document.querySelectorAll('.title').forEach(text => {
     text.style.display = 'none';
   });
-  
+
   // Показываем случайную дверь
   const randomDoor = doorsArray[Math.floor(Math.random() * doorsArray.length)];
   const doorCard = randomDoor.closest('.main_imageCard');
-  
+  console.log(doorCard)
+
+  // Показываем только эту карточку
+  let doorName = '';
   if (doorCard) {
-    // Показываем только эту карточку
+    // Получаем имя двери из тега p
+    const titleElement = doorCard.querySelector('.title');
+    if (titleElement) {
+      doorName = titleElement.textContent.trim();
+      console.log('Имя выбранной двери:', doorName);
+    }
+    //применяем стили
     doorCard.style.display = 'block';
-    doorCard.style.margin = '75px auto';
+    doorCard.style.margin = '0 auto';
     doorCard.style.maxWidth = '400px';
+    doorCard.style.padding = '25px'
 
     // Скрываем иконку пальца если она есть
     const icon = doorCard.querySelector('.main_icon');
@@ -178,9 +191,37 @@ menuGame.addEventListener('click', () => {
     // Скрываем default изображение
     const defaultImages = doorCard.querySelector('.pic_default');
     if (defaultImages) defaultImages.style.display = 'none';
-    
-    // Показываем только выбранное изображение
-    // randomDoor.style.display = 'block';
-    // randomDoor.style.width = '100%';
+
+    // Скрываем unknown изображение
+    const mainUnknown = doorCard.querySelector('.main_unknown');
+    if (mainUnknown) defaultImages.style.display = 'none';
   }
+
+  const nameInput = document.getElementById('name');
+  
+  function checkUserInput() {
+    const userInput = nameInput.value.trim();
+    const answerRigth = document.querySelector('.answer_rigth')
+    const answerNotRigth = document.querySelector('.answer_not-rigth')
+    answerRigth.setAttribute('style', 'display: none;')
+    answerNotRigth.setAttribute('style', 'display: none')
+
+    if (userInput.toLowerCase() === doorName.toLowerCase()) {
+      console.log('Правильно! Пользователь угадал дверь:', doorName);
+      // Здесь можно добавить логику для правильного ответа
+      nameInput.value = '';
+      answerRigth.setAttribute('style', 'display: block;')
+      return true;
+    } else {
+      console.log('Неправильно. Ожидалось:', doorName, 'Получено:', userInput);
+      // Здесь можно добавить логику для неправильного ответа
+      nameInput.value = '';
+      answerNotRigth.setAttribute('style', 'display: block')
+      return false;
+    }
+  }
+  
+  document.getElementById('checkButton').addEventListener('click', checkUserInput);
+  
+
 });
