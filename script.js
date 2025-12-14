@@ -135,6 +135,7 @@ const answerRigth = document.querySelector('.answer_rigth')
 const answerNotRigth = document.querySelector('.answer_not-rigth')
 
 menuGame.addEventListener('click', () => {
+  document.getElementById('afina').scrollIntoView({behavior: 'smooth'});
   buttonGame.classList.add('active')
   burgerMenu.setAttribute('style', 'display: none;');
   buttonGame.setAttribute('style', 'display: flex;');
