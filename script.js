@@ -133,7 +133,6 @@ const buttonGame = document.getElementById('burgerGame');
 const form = document.querySelector('.form_box')
 const answerRigth = document.querySelector('.answer_rigth')
 const answerNotRigth = document.querySelector('.answer_not-rigth')
-const menubox = document.querySelector('.menubox')
 
 menuGame.addEventListener('click', () => {
   buttonGame.classList.add('active')
@@ -142,7 +141,6 @@ menuGame.addEventListener('click', () => {
   menuContainer.classList.remove('active');
   mainShadow.classList.remove('active');
   form.setAttribute('style', 'display: block;');
-  // menubox.classList.add('active')
 
   function removeImageCardHandlers() {
     const imageCards = document.querySelectorAll('.main_imageCard');
@@ -192,8 +190,7 @@ menuGame.addEventListener('click', () => {
     doorCard.style.display = 'block';
     doorCard.style.margin = '0 auto';
     doorCard.style.maxWidth = '400px';
-    doorCard.style.top = '80px'
-    doorCard.style.position = 'absolute'
+    doorCard.style.padding = '25px'
 
     // Скрываем иконку пальца если она есть
     const icon = doorCard.querySelector('.main_icon');
