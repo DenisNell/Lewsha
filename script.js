@@ -100,30 +100,34 @@ document.addEventListener('keydown', (e) => {
   }
 });
 
-document.addEventListener('DOMContentLoaded', function () {
-  // Получаем все карточки с изображениями
+
+function toggleCardImage(event) {
+  const card = event.currentTarget;
+  // Находим изображения внутри текущей карточки
+  const image1 = card.querySelector('.main_image1');
+  const image2 = card.querySelector('.main_image2');
+  // Переключаем видимость изображений
+  if (image1.style.opacity !== '0') {
+    image1.style.opacity = '0';
+    image2.style.opacity = '1';
+  } else {
+    image1.style.opacity = '1';
+    image2.style.opacity = '0';
+  }
+}
+// Функция для добавления обработчиков
+function setupImageCards() {
   const imageCards = document.querySelectorAll('.main_imageCard');
-
-  // Для каждой карточки добавляем обработчик клика
   imageCards.forEach(card => {
-    card.addEventListener('click', function () {
-      // Находим изображения внутри текущей карточки
-      const image1 = this.querySelector('.main_image1');
-      const image2 = this.querySelector('.main_image2');
-
-      // Переключаем видимость изображений
-      if (image1.style.opacity !== '0') {
-        image1.style.opacity = '0';
-        image2.style.opacity = '1';
-      } else {
-        image1.style.opacity = '1';
-        image2.style.opacity = '0';
-      }
-    });
+    card.addEventListener('click', toggleCardImage);
   });
-});
+}
+document.addEventListener('DOMContentLoaded', setupImageCards);
 
+//
 // Игра
+//
+
 
 const buttonGame = document.getElementById('burgerGame');
 const form = document.querySelector('.form_box')
@@ -137,6 +141,14 @@ menuGame.addEventListener('click', () => {
   menuContainer.classList.remove('active');
   mainShadow.classList.remove('active');
   form.setAttribute('style', 'display: block;');
+  
+  function removeImageCardHandlers() {
+    const imageCards = document.querySelectorAll('.main_imageCard');
+    imageCards.forEach(card => {
+      card.removeEventListener('click', toggleCardImage);
+    });
+  }
+  removeImageCardHandlers()
 })
 
 buttonGame.addEventListener('click', () => {
@@ -144,12 +156,10 @@ buttonGame.addEventListener('click', () => {
 });
 
 menuGame.addEventListener('click', () => {
-  // Показываем только случайную дверь (только main_image1)
-  const doorImages1 = document.querySelectorAll('.main_image1');
-  const doorImages2 = document.querySelectorAll('.main_image2');
-  const allImagesArray = [...doorImages1, ...doorImages2];
-  const doorsArray = [...new Set(allImagesArray)];
-
+  const allDoorImages = document.querySelectorAll('.main_image1, .main_image2');
+  const doorsArray = Array.from(allDoorImages);
+  console.log(doorsArray)
+  
   if (doorsArray.length === 0) return;
 
   // Скрываем все карточки
@@ -195,13 +205,12 @@ menuGame.addEventListener('click', () => {
     if (mainUnknown) defaultImages.style.display = 'none';
   }
 
-  // const nameInput = document.getElementById('name');
+  const nameInput = document.getElementById('name');
   
   function checkUserInput(event) {
     // Предотвращаем отправку формы и перезагрузку страницы
     if (event) event.preventDefault();
     
-    const nameInput = document.getElementById('name');
     const userInput = nameInput.value.trim();
 
     if (userInput.toLowerCase() === doorName.toLowerCase()) {

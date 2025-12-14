@@ -331,8 +331,6 @@ a {
     transform: rotate(-45deg) translate(6px, -6px);
   }
 
-  
-
   .label {}
   /* Основной вид картинки */
 
@@ -361,7 +359,6 @@ a {
     padding-top: 65px;
     position: relative;
   }
-
 
   .main_icon {
     position: absolute;
