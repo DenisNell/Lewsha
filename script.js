@@ -131,6 +131,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
 const buttonGame = document.getElementById('burgerGame');
 const form = document.querySelector('.form_box')
+const answerRigth = document.querySelector('.answer_rigth')
+const answerNotRigth = document.querySelector('.answer_not-rigth')
 
 menuGame.addEventListener('click', () => {
   buttonGame.classList.add('active')
@@ -139,6 +141,8 @@ menuGame.addEventListener('click', () => {
   menuContainer.classList.remove('active');
   mainShadow.classList.remove('active');
   form.setAttribute('style', 'display: block;');
+  answerRigth.setAttribute('style', 'display: none;')
+  answerNotRigth.setAttribute('style', 'display: none')
 })
 
 buttonGame.addEventListener('click', () => {
@@ -199,29 +203,69 @@ menuGame.addEventListener('click', () => {
 
   const nameInput = document.getElementById('name');
   
-  function checkUserInput() {
+  // function checkUserInput() {
+  //   const userInput = nameInput.value.trim();
+  //   answerRigth.setAttribute('style', 'display: none;')
+  //   answerNotRigth.setAttribute('style', 'display: none')
+
+  //   if (userInput.toLowerCase() === doorName.toLowerCase()) {
+  //     console.log('Правильно! Пользователь угадал дверь:', doorName);
+  //     // Здесь можно добавить логику для правильного ответа
+  //     nameInput.value = '';
+  //     answerRigth.setAttribute('style', 'display: block;')
+  //     return true;
+  //   } else {
+  //     console.log('Неправильно. Ожидалось:', doorName, 'Получено:', userInput);
+  //     // Здесь можно добавить логику для неправильного ответа
+  //     nameInput.value = '';
+  //     answerNotRigth.setAttribute('style', 'display: block')
+  //     return false;
+  //   }
+  // }
+  
+  // document.getElementById('checkButton').addEventListener('click', checkUserInput); 
+  function checkUserInput(event) {
+    // Предотвращаем отправку формы и перезагрузку страницы
+    if (event) event.preventDefault();
+    
+    const nameInput = document.getElementById('name');
     const userInput = nameInput.value.trim();
-    const answerRigth = document.querySelector('.answer_rigth')
-    const answerNotRigth = document.querySelector('.answer_not-rigth')
-    answerRigth.setAttribute('style', 'display: none;')
-    answerNotRigth.setAttribute('style', 'display: none')
+    answerRigth.setAttribute('style', 'display: none;');
+    answerNotRigth.setAttribute('style', 'display: none;');
 
     if (userInput.toLowerCase() === doorName.toLowerCase()) {
       console.log('Правильно! Пользователь угадал дверь:', doorName);
-      // Здесь можно добавить логику для правильного ответа
       nameInput.value = '';
-      answerRigth.setAttribute('style', 'display: block;')
+      answerRigth.setAttribute('style', 'display: block;');
       return true;
     } else {
       console.log('Неправильно. Ожидалось:', doorName, 'Получено:', userInput);
-      // Здесь можно добавить логику для неправильного ответа
       nameInput.value = '';
-      answerNotRigth.setAttribute('style', 'display: block')
+      answerNotRigth.setAttribute('style', 'display: block');
       return false;
     }
   }
   
-  document.getElementById('checkButton').addEventListener('click', checkUserInput);
+  // Удаляем старый обработчик и добавляем новый
+  const checkButton = document.getElementById('checkButton');
   
+  // Удаляем все предыдущие обработчики
+  const newCheckButton = checkButton.cloneNode(true);
+  checkButton.parentNode.replaceChild(newCheckButton, checkButton);
+  
+  // Добавляем обработчик на кнопку
+  document.getElementById('checkButton').addEventListener('click', function(event) {
+    // Предотвращаем поведение по умолчанию для кнопки в форме
+    event.preventDefault();
+    checkUserInput(event);
+  });
+  
+  // Также предотвращаем отправку формы по нажатию Enter
+  nameInput.addEventListener('keypress', function(event) {
+    if (event.key === 'Enter') {
+      event.preventDefault();
+      checkUserInput(event);
+    }
+  });
 
 });

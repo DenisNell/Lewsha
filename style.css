@@ -188,7 +188,7 @@ a {
     cursor: pointer;
   }
   .form_button:active {
-    transform: scale(0.90); /* Легкое нажатие */
+    transform: scale(0.90);
   }
 
 
