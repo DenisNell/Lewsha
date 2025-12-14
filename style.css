@@ -26,6 +26,21 @@
   }
 }
 
+@keyframes pulse2 {
+
+  0% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.2);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
 @keyframes pulse {
 
   0%,
@@ -37,6 +52,17 @@
   50% {
     transform: scale(1);
     opacity: 0.5;
+  }
+}
+
+@keyframes pulse3 {
+
+  0% {
+    transform: scale(1);
+  }
+
+  100% {
+    transform: scale(2);
   }
 }
 
@@ -134,63 +160,14 @@ a {
 }
 
 
-/* .label {} */
+.label {}
+
+.label {}
 
 @media screen and (max-width: 1024px) {
   .pc_block {
     display: none;
   }
-
-  .form_box {
-    display: none;
-    margin-top: 65px;
-  }
-
-  .form_text {
-    font-family: var(--second-family);
-    font-size: 20px;
-    margin-bottom: 10px;
-    max-width: 230px;
-    text-align: center;
-  }
-
-  .form_input {
-    font-size: 20px;
-    border: 2px solid #000;
-    height: 30px;
-    border-radius: 7px;
-    max-width: 150px;
-    transition: border-color 0.3s ease;
-  }
-  .form_input::placeholder{
-    font-size: 15px;
-    padding-left: 5px;
-    font-style: italic;
-    opacity: 0.8;
-  }
-  .form_input:focus::placeholder {
-    color: transparent;
-  }
-
-  .form_input:focus {
-    outline: #f26a02;
-    box-shadow: 0 0 15px #f26a02;
-  }
-  
-  .form_input:invalid {
-    border-color: #fe0000;
-    box-shadow: 0 0 15px #fe0000;
-  }
-  .form_button {
-    background-color: antiquewhite;
-    height: 30px;
-    border-radius: 7px;
-    cursor: pointer;
-  }
-  .form_button:active {
-    transform: scale(0.90);
-  }
-
 
   .menu {
     display: block;
@@ -222,8 +199,226 @@ a {
     margin-top: 3px;
   }
 
+  .menu_linkall {
+    width: 100%;
+    max-height: 70vh;
+    overflow-y: auto;
+  }
+
+  .menu_simple,
+  .menu_skin,
+  .menu_patina {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-bottom: 20px;
+    width: 100%;
+    text-align: center;
+    list-style: none;
+    padding-top: 7px;
+    margin: 0 auto;
+    white-space: nowrap;
+  }
+
+  .menu_simple.active,
+  .menu_skin.active,
+  .menu_patina.active {
+    display: none;
+  }
+
+  .label {}
+
+  .menu_containerLink {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background: white;
+    border-radius: 0 0 10px 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+    z-index: 1000;
+    transform: translateY(-100%);
+    opacity: 0;
+    visibility: hidden;
+    transition: none;
+  }
+
+  .menu_containerLink.active {
+    display: block;
+    transform: translateY(0);
+    opacity: 1;
+    visibility: visible;
+    transition: all 0.3s ease-in-out;
+  }
+
+  p span {
+    font-size: 20px;
+    line-height: 1px;
+  }
+
+  .label {}
+  /* кнопки меню */
+
+  .menu_button {
+    padding-bottom: 10px;
+    display: flex;
+    justify-content: center;
+    width: 300px;
+    width: 100%;
+    margin: 0 auto;
+  }
+
+  .button_simple,
+  .button_patina,
+  .button_skin {
+    display: block;
+    margin: 0 auto;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0 0 15px 3px #f0812c;
+    text-shadow: 0 0 10px #f26a02;
+    font-weight: bold;
+    font-size: 16px;
+    cursor: pointer;
+  }
+
+  .button_simple.active,
+  .button_patina.active,
+  .button_skin.active {
+    background-color: #f1ebe7;
+    box-shadow: none;
+    text-shadow: none;
+    animation: shake 0.5s infinite ease-in-out;
+  }
+
+  .label {}
+  /* бургер меню */
+
+  .burger-menu {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 21px;
+    cursor: pointer;
+    margin-top: 16px;
+    animation: shake 0.5s infinite ease-in-out;
+  }
+
+  .burger-menu span {
+    display: block;
+    height: 3px;
+    width: 100%;
+    background-color: var(--general);
+    border-radius: 2px;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 10px 3px #f0812c;
+  }
+
+  .burger-menu.active span:nth-child(1) {
+    transform: rotate(45deg) translate(6px, 6px);
+  }
+
+  .burger-menu.active span:nth-child(2) {
+    opacity: 0;
+  }
+
+  .burger-menu.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(6px, -6px);
+  }
+
+  
+
+  .label {}
+  /* Основной вид картинки */
+
+  .main {
+    display: block;
+    transition: opacity 0.3s, visibility 0.5s;
+  }
+
+  .main.active {
+    background: rgba(0, 0, 0, 0.5);
+    opacity: 0.5;
+    transition: opacity 0.3s, visibility 0.5s;
+  }
+
+  .main_imageBox {
+    display: grid;
+    justify-items: center;
+    grid-template-columns: 1fr;
+  }
+
+  .main_imageBox:last-child {
+    margin-bottom: 150px;
+  }
+
+  .main_imageCard {
+    padding-top: 65px;
+    position: relative;
+  }
 
 
+  .main_icon {
+    position: absolute;
+    height: 50px;
+    width: 50px;
+    top: 513px;
+    left: 158px;
+    opacity: 0.5;
+    animation: pulse 2s infinite ease-in-out;
+  }
+
+  .main_image1 {
+    transition: opacity 1s ease;
+  }
+
+  .main_image2 {
+    position: absolute;
+    opacity: 0;
+    top: 65px;
+    left: 0;
+    transition: opacity 1s ease;
+  }
+
+  .main_unknown {
+    display: block;
+  }
+
+  .image_skin,
+  .image_simple,
+  .image_patina {
+    display: block;
+  }
+
+  .image_skin.active,
+  .image_simple.active,
+  .image_patina.active {
+    display: none;
+  }
+
+  .image_default {
+    display: none;
+    margin: 0 auto;
+    padding-top: 200px;
+  }
+
+  .image_default.active {
+    display: block;
+  }
+
+  .pic_default {
+    margin: 0 auto;
+  }
+
+  .text_default {
+    padding-top: 20px;
+    margin: 0 auto;
+  }
 
   .label {}
 
@@ -263,6 +458,7 @@ a {
     border: 5px solid transparent;
     border-radius: 20px;
     z-index: 15;
+    cursor: pointer;
   }
 
   .menu_game.active {
@@ -286,6 +482,7 @@ a {
 
   .label {}
 
+  /* кнопка закрытия игры */
   .burger-game {
     display: flex;
     flex-direction: column;
@@ -294,7 +491,7 @@ a {
     height: 21px;
     cursor: pointer;
     margin-top: 16px;
-    animation: shake 0.5s infinite ease-in-out;
+    animation: pulse2 2s infinite ease-in-out;
     display: none;
   }
 
@@ -304,7 +501,7 @@ a {
     background-color: var(--general);
     border-radius: 2px;
     transition: all 0.3s ease;
-    box-shadow: 0 0 10px 3px #f0812c;
+    box-shadow: 0 0 10px 3px #f26a02;
   }
 
   .burger-game.active span:nth-child(1) {
@@ -319,235 +516,89 @@ a {
     transform: rotate(-45deg) translate(6px, -6px);
   }
 
-
   .label {}
+  /* Формы и ответы */
 
-  .label {}
-
-  .label {}
-
-  .menu_button {
-    padding-bottom: 10px;
-    display: flex;
-    justify-content: center;
-    width: 300px;
-    width: 100%;
-    margin: 0 auto;
-  }
-
-  .button_simple,
-  .button_patina,
-  .button_skin {
-    display: block;
-    margin: 0 auto;
-    padding: 10px;
-    border-radius: 10px;
-    box-shadow: 0 0 15px 3px #f0812c;
-    text-shadow: 0 0 10px #f26a02;
-    font-weight: bold;
-    font-size: 16px;
-  }
-
-  .button_simple.active,
-  .button_patina.active,
-  .button_skin.active {
-    background-color: #f1ebe7;
-    box-shadow: none;
-    text-shadow: none;
-    animation: shake 0.5s infinite ease-in-out;
-  }
-
-  .menu_linkall {
-    width: 100%;
-    max-height: 70vh;
-    overflow-y: auto;
-  }
-
-  .menu_simple,
-  .menu_skin,
-  .menu_patina {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 12px;
-    margin-bottom: 20px;
-    width: 100%;
-    text-align: center;
-    list-style: none;
-    padding-top: 7px;
-    margin: 0 auto;
-    white-space: nowrap;
-  }
-
-  .menu_simple.active,
-  .menu_skin.active,
-  .menu_patina.active {
+  .form_box {
     display: none;
+    margin-top: 65px;
   }
 
-  .label {}
-
-  .burger-menu {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    width: 30px;
-    height: 21px;
-    cursor: pointer;
-    margin-top: 16px;
-    animation: shake 0.5s infinite ease-in-out;
-  }
-
-  .burger-menu span {
-    display: block;
-    height: 3px;
-    width: 100%;
-    background-color: var(--general);
-    border-radius: 2px;
-    transition: all 0.3s ease;
-    box-shadow: 0 0 10px 3px #f0812c;
-  }
-
-  .burger-menu.active span:nth-child(1) {
-    transform: rotate(45deg) translate(6px, 6px);
-  }
-
-  .burger-menu.active span:nth-child(2) {
-    opacity: 0;
-  }
-
-  .burger-menu.active span:nth-child(3) {
-    transform: rotate(-45deg) translate(6px, -6px);
-  }
-
-  .label {}
-
-  .menu_containerLink {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    width: 100%;
-    background: white;
-    border-radius: 0 0 10px 10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    padding: 10px;
-    z-index: 1000;
-    transform: translateY(-100%);
-    opacity: 0;
-    visibility: hidden;
-    transition: none;
-  }
-
-  .menu_containerLink.active {
-    display: block;
-    transform: translateY(0);
-    opacity: 1;
-    visibility: visible;
-    transition: all 0.3s ease-in-out;
-  }
-
-  p span {
+  .form_text {
+    font-family: var(--second-family);
     font-size: 20px;
-    line-height: 1px;
+    margin-bottom: 10px;
+    max-width: 230px;
+    text-align: center;
   }
 
-  .main {
-    display: block;
-    transition: opacity 0.3s, visibility 0.5s;
+  .form_input {
+    font-size: 20px;
+    border: 2px solid #000;
+    height: 30px;
+    border-radius: 7px;
+    max-width: 150px;
+    transition: border-color 0.3s ease;
   }
 
-  .main.active {
-    background: rgba(0, 0, 0, 0.5);
-    opacity: 0.5;
-    transition: opacity 0.3s, visibility 0.5s;
+  .form_input::placeholder {
+    font-size: 15px;
+    padding-left: 5px;
+    font-style: italic;
+    opacity: 0.8;
   }
 
-  .main_imageBox {
-    display: grid;
-    justify-items: center;
-    grid-template-columns: 1fr;
-  }
-  .main_imageBox:last-child{
-    margin-bottom: 150px;
+  .form_input:focus::placeholder {
+    color: transparent;
   }
 
-  .main_imageCard {
-    padding-top: 65px;
-    position: relative;
-  }
-  
-
-  .main_icon {
-    position: absolute;
-    height: 50px;
-    width: 50px;
-    top: 513px;
-    left: 158px;
-    opacity: 0.5;
-    animation: pulse 2s infinite ease-in-out;
+  .form_input:focus {
+    outline: #f26a02;
+    box-shadow: 0 0 15px #f26a02;
   }
 
-  .main_image1 {
-    transition: opacity 1s ease;
+  .form_input:invalid {
+    border-color: #fe0000;
+    box-shadow: 0 0 15px #fe0000;
   }
 
-  .main_image2 {
-    position: absolute;
-    opacity: 0;
-    top: 65px;
-    left: 0;
-    transition: opacity 1s ease;
-  }
-  .main_unknown{
-    display: block;
+  .form_button {
+    background-color: antiquewhite;
+    height: 30px;
+    border-radius: 7px;
+    cursor: pointer;
   }
 
-  .image_skin,
-  .image_simple,
-  .image_patina {
-    display: block;
+  .form_button:active {
+    transform: scale(0.90);
   }
 
-  .image_skin.active,
-  .image_simple.active,
-  .image_patina.active {
-    display: none;
-  }
-
-  .image_default {
-    display: none;
-    margin: 0 auto;
-    padding-top: 200px;
-  }
-
-  .image_default.active {
-    display: block;
-  }
-
-  .pic_default {
-    margin: 0 auto;
-  }
-
-  .text_default {
-    padding-top: 20px;
-    margin: 0 auto;
-  }
   .answer_rigth {
     display: none;
+    position: absolute;
+    top: 35%;
+    left: 50%;
+    transform: translate(-50%, -50%);
   }
+
   .text_answer-rigth {
     color: #00ff00;
-    font-size: 50px;
-
+    font-size: 40px;
+    animation: pulse3 2s ease-in-out;
   }
+
   .answer_not-rigth {
     display: none;
+    position: absolute;
+    top: 35%;
+    left: 50%;
+    transform: translate(-50%, -50%);
   }
+
   .text_answer_not-rigth {
     color: #fe0000;
-    font-size: 50px;
+    font-size: 40px;
+    animation: pulse3 2s ease-in-out;
   }
-  
+
 }

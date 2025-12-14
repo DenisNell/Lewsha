@@ -69,13 +69,9 @@ function toggleMenu() {
   burgerMenu.classList.toggle('active');
   mainShadow.classList.toggle('active');
   menuGame.classList.toggle('active')
-
-
   // Блокировка прокрутки body при открытом меню
   document.body.style.overflow = menuContainer.classList.contains('active') ? 'hidden' : '';
 }
-
-// Событие клика по бургер-меню
 burgerMenu.addEventListener('click', toggleMenu);
 
 // Закрытие меню при клике на ссылку
@@ -141,8 +137,6 @@ menuGame.addEventListener('click', () => {
   menuContainer.classList.remove('active');
   mainShadow.classList.remove('active');
   form.setAttribute('style', 'display: block;');
-  answerRigth.setAttribute('style', 'display: none;')
-  answerNotRigth.setAttribute('style', 'display: none')
 })
 
 buttonGame.addEventListener('click', () => {
@@ -201,47 +195,30 @@ menuGame.addEventListener('click', () => {
     if (mainUnknown) defaultImages.style.display = 'none';
   }
 
-  const nameInput = document.getElementById('name');
+  // const nameInput = document.getElementById('name');
   
-  // function checkUserInput() {
-  //   const userInput = nameInput.value.trim();
-  //   answerRigth.setAttribute('style', 'display: none;')
-  //   answerNotRigth.setAttribute('style', 'display: none')
-
-  //   if (userInput.toLowerCase() === doorName.toLowerCase()) {
-  //     console.log('Правильно! Пользователь угадал дверь:', doorName);
-  //     // Здесь можно добавить логику для правильного ответа
-  //     nameInput.value = '';
-  //     answerRigth.setAttribute('style', 'display: block;')
-  //     return true;
-  //   } else {
-  //     console.log('Неправильно. Ожидалось:', doorName, 'Получено:', userInput);
-  //     // Здесь можно добавить логику для неправильного ответа
-  //     nameInput.value = '';
-  //     answerNotRigth.setAttribute('style', 'display: block')
-  //     return false;
-  //   }
-  // }
-  
-  // document.getElementById('checkButton').addEventListener('click', checkUserInput); 
   function checkUserInput(event) {
     // Предотвращаем отправку формы и перезагрузку страницы
     if (event) event.preventDefault();
     
     const nameInput = document.getElementById('name');
     const userInput = nameInput.value.trim();
-    answerRigth.setAttribute('style', 'display: none;');
-    answerNotRigth.setAttribute('style', 'display: none;');
 
     if (userInput.toLowerCase() === doorName.toLowerCase()) {
       console.log('Правильно! Пользователь угадал дверь:', doorName);
       nameInput.value = '';
       answerRigth.setAttribute('style', 'display: block;');
+      setTimeout(() => {
+        answerRigth.setAttribute('style', 'display: none;');
+    }, 2000);
       return true;
     } else {
       console.log('Неправильно. Ожидалось:', doorName, 'Получено:', userInput);
       nameInput.value = '';
       answerNotRigth.setAttribute('style', 'display: block');
+      setTimeout(() => {
+        answerNotRigth.setAttribute('style', 'display: none;');
+    }, 2000);
       return false;
     }
   }
