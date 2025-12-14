@@ -135,8 +135,11 @@ const answerRigth = document.querySelector('.answer_rigth')
 const answerNotRigth = document.querySelector('.answer_not-rigth')
 
 menuGame.addEventListener('click', () => {
+  activateGameMode();
+});
+function activateGameMode() {
   document.getElementById('afina').scrollIntoView({behavior: 'smooth'});
-  buttonGame.classList.add('active')
+  buttonGame.classList.add('active');
   burgerMenu.setAttribute('style', 'display: none;');
   buttonGame.setAttribute('style', 'display: flex;');
   menuContainer.classList.remove('active');
@@ -149,14 +152,17 @@ menuGame.addEventListener('click', () => {
       card.removeEventListener('click', toggleCardImage);
     });
   }
-  removeImageCardHandlers()
-})
+  removeImageCardHandlers();
+}
 
 buttonGame.addEventListener('click', () => {
   location.reload();
 });
 
 menuGame.addEventListener('click', () => {
+  activateGame();
+});
+function activateGame(){
   const allDoorImages = document.querySelectorAll('.main_image1, .main_image2');
   const doorsArray = Array.from(allDoorImages);
   console.log(doorsArray)
@@ -207,20 +213,20 @@ menuGame.addEventListener('click', () => {
   }
 
   const nameInput = document.getElementById('name');
-  
   function checkUserInput(event) {
     // Предотвращаем отправку формы и перезагрузку страницы
     if (event) event.preventDefault();
-
     const userInput = nameInput.value.trim();
     if (userInput.toLowerCase() === doorName.toLowerCase()) {
-      console.log('Правильно! Пользователь угадал дверь:', doorName);
+      console.log('Правильно! :', doorName);
       nameInput.value = '';
       answerRigth.setAttribute('style', 'display: block;');
       setTimeout(() => {
         answerRigth.setAttribute('style', 'display: none;');
-    }, 2000);
-      return true;
+        activateGameMode();
+        activateGame()
+    }, 2000);    
+      // return true;
     } else {
       console.log('Неправильно. Ожидалось:', doorName, 'Получено:', userInput);
       nameInput.value = '';
@@ -228,7 +234,7 @@ menuGame.addEventListener('click', () => {
       setTimeout(() => {
         answerNotRigth.setAttribute('style', 'display: none;');
     }, 2000);
-      return false;
+      return false;      
     }
   }
   
@@ -248,5 +254,4 @@ menuGame.addEventListener('click', () => {
       checkUserInput(event);
     }
   });
-
-});
+};

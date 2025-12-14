@@ -596,6 +596,7 @@ a {
   .text_answer_not-rigth {
     color: #fe0000;
     font-size: 40px;
+    white-space: nowrap;
     animation: pulse3 2s ease-in-out;
   }
 
