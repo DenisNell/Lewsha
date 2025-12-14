@@ -581,7 +581,7 @@ a {
 
   .text_answer-rigth {
     color: #00ff00;
-    font-size: 40px;
+    font-size: 30px;
     animation: pulse3 2s ease-in-out;
   }
 
@@ -595,7 +595,7 @@ a {
 
   .text_answer_not-rigth {
     color: #fe0000;
-    font-size: 40px;
+    font-size: 30px;
     white-space: nowrap;
     animation: pulse3 2s ease-in-out;
   }
