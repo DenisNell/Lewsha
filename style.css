@@ -456,7 +456,7 @@ a {
         var(--orange),
         var(--yellow),
         var(--orange),
-        var(--yellow),        
+        var(--yellow),
         var(--orange)) border-box;
     border: 5px solid transparent;
     border-radius: 20px;
@@ -478,7 +478,7 @@ a {
         var(--orange),
         var(--yellow),
         var(--orange),
-        var(--yellow),        
+        var(--yellow),
         var(--orange)) border-box;
     border: 5px solid transparent;
     border-radius: 20px;
@@ -560,15 +560,15 @@ a {
   }
 
   .rigth_counter {
-    background: green;
+    background: rgb(110, 179, 110);
   }
 
   .wrong_counter {
-    background: red;
+    background: rgb(247, 93, 93);
   }
 
   .question_counter {
-    background: yellow;
+    background: rgb(252, 252, 97);
   }
 
   .form_box {
@@ -578,6 +578,7 @@ a {
 
   .form_input_button {
     display: flex;
+    gap: 10px;
   }
 
   .form_text {
@@ -591,7 +592,7 @@ a {
 
   .form_input {
     font-size: 20px;
-    border: 2px solid #000;
+    border: 1px solid #000;
     height: 30px;
     border-radius: 7px;
     max-width: 150px;
@@ -614,16 +615,18 @@ a {
     box-shadow: 0 0 15px #f26a02;
   }
 
-  .form_input:invalid {
-    border-color: #fe0000;
-    box-shadow: 0 0 15px #fe0000;
-  }
 
   .form_button {
-    background-color: antiquewhite;
+    background: linear-gradient(to bottom, antiquewhite, #f0dfc8);
     height: 30px;
-    border-radius: 7px;
+    border-radius: 15px;
     cursor: pointer;
+    border: none;
+    color: black;
+    font-weight: 500;
+    font-size: 14px;
+    box-shadow: 0 3px 6px rgba(139, 115, 85, 0.2);
+    transition: all 0.3s ease;    
   }
 
   .form_button:active {
