@@ -132,6 +132,8 @@ a {
   text-shadow: 0 0 10px #f5b17d;
 }
 
+
+
 .menu_link {
   font-family: var(--second-family);
   font-weight: 700;
@@ -182,7 +184,7 @@ a {
     z-index: 1000;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   }
-  
+
 
   .menu_ContainerFlex {
     display: flex;
@@ -262,6 +264,7 @@ a {
   }
 
   .label {}
+
   /* кнопки меню */
 
   .menu_button {
@@ -297,6 +300,7 @@ a {
   }
 
   .label {}
+
   /* бургер меню */
 
   .burger-menu {
@@ -333,6 +337,7 @@ a {
   }
 
   .label {}
+
   /* Основной вид картинки */
 
   .main {
@@ -448,11 +453,11 @@ a {
     inset: 0;
     background: linear-gradient(var(--black), var(--black)) padding-box,
       conic-gradient(in oklch from var(--gradient-angle),
+        var(--orange),
         var(--yellow),
-        var(--yellow),
-        var(--yellow),
-        var(--yellow),
-        var(--yellow)) border-box;
+        var(--orange),
+        var(--yellow),        
+        var(--orange)) border-box;
     border: 5px solid transparent;
     border-radius: 20px;
     z-index: 15;
@@ -461,9 +466,28 @@ a {
 
   .menu_game.active {
     display: block;
+    width: 40px;
+    height: 40px;
+    margin-top: 5px;
+    animation: spin 2s linear infinite;
+    content: "";
+    position: relative;
+    inset: 0;
+    background: linear-gradient(var(--black), var(--black)) padding-box,
+      conic-gradient(in oklch from var(--gradient-angle),
+        var(--orange),
+        var(--yellow),
+        var(--orange),
+        var(--yellow),        
+        var(--orange)) border-box;
+    border: 5px solid transparent;
+    border-radius: 20px;
+    z-index: 15;
+    cursor: pointer;
   }
 
   .menu_game_glow {
+    /* display: none; */
     animation: spin 2s linear infinite;
     position: absolute;
     inset: -10px;
@@ -515,16 +539,51 @@ a {
   }
 
   .label {}
+
   /* Формы и ответы */
+  .counter_box {
+    display: none;
+    gap: 10px;
+    margin-top: 10px;
+  }
+
+  .rigth_counter,
+  .wrong_counter,
+  .question_counter {
+    width: 20px;
+    height: 20px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+  }
+
+  .rigth_counter {
+    background: green;
+  }
+
+  .wrong_counter {
+    background: red;
+  }
+
+  .question_counter {
+    background: yellow;
+  }
 
   .form_box {
     display: none;
     margin-top: 65px;
   }
 
+  .form_input_button {
+    display: flex;
+  }
+
   .form_text {
     font-family: var(--second-family);
     font-size: 20px;
+    padding-top: 45px;
     margin-bottom: 10px;
     max-width: 230px;
     text-align: center;
@@ -540,7 +599,7 @@ a {
   }
 
   .form_input::placeholder {
-    font-size: 15px;
+    font-size: 16px;
     padding-left: 5px;
     font-style: italic;
     opacity: 0.8;

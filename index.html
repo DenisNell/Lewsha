@@ -71,7 +71,7 @@
               <li><a href="#djaz" class="menu_link">Джаз</a></li>
               <li><a href="#imidg" class="menu_link">Имидж</a></li>
               <li><a href="#kantry" class="menu_link">Кантри</a></li>
-              <li><a href="#kapri" class="menu_link"><s>Капри</s></a></li>
+              <li><a href="#kapri" class="menu_link"><s>Палермо</s></a></li>
               <li><a href="#kianti" class="menu_link">Кьянти</a></li>
               <li><a href="#lira" class="menu_link">Лира</a></li>
               <li><a href="#largo" class="menu_link">Ларго</a></li>
@@ -112,9 +112,26 @@
         <div class="form_box">
           <form class="form" action="">
             <p class="form_text">Угадай дверь:</p>
-            <input id="name" class="form_input" type="text" placeholder="Имя двери...">
-            <button id="checkButton" class="form_button" type="submit">Проверить</button>
+            <div class="form_input_button">
+              <input id="name" class="form_input" type="text" placeholder="Дать подсказку">
+              <button id="checkButton" class="form_button" type="submit">Проверить</button>
+            </div>
           </form>
+        </div>
+
+        <div class="counter_box">
+          <div class="rigth_box">
+            <p class="rigth_text">Верно:</p>
+            <div class="rigth_counter"></div>
+          </div>
+          <div class="wrong_box">
+            <p class="wrong_text">Не верно:</p>
+            <div class="wrong_counter"></div>
+          </div>
+          <div class="question_box">
+            <p class="question_text">Подсказок:</p>
+            <div class="question_counter"></div>
+          </div>
         </div>
         
         <div id="afina" class="main_imageCard image_patina">
@@ -203,7 +220,7 @@
 
         <div id="kapri" class="main_imageCard image_simple">
           <img class="main_unknown" src="img/unknown.png" alt="">
-          <p class="title">Капри</p>
+          <p class="title">Палермо</p>
         </div>
         
         <div id="kianti" class="main_imageCard image_simple">
@@ -287,9 +304,7 @@
         <div id="san-trope" class="main_imageCard image_patina">
           <img class="main_image2" src="img/san_trope-do.jpg" alt="">
           <img class="main_image1" src="img/san_trope-do.jpg" alt="">
-          <p class="title">Сан Тропе 
-            <!-- <br><span>(6мм МДФ)</span> -->
-          </p>
+          <p class="title">Сан Тропе </p>
         </div>
         
         <div id="solo" class="main_imageCard image_simple">
@@ -380,8 +395,10 @@
         </div>
 
         <div class="answer_not-rigth">
-          <p class="text_answer_not-rigth">Не верно!</p>
+          <p class="text_answer_not-rigth">Облом!</p>
         </div>
+
+
 
         <div class="image_default">
           <img class="pic_default" src="img/unknown.png" alt="">
