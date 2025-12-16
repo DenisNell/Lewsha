@@ -288,13 +288,17 @@ function activateGame() {
 
     } else {
       wrong += 1
+      formText.innerText = `${doorName}`;
       console.log('Неправильно. Ожидалось:', doorName, 'Получено:', userInput);
       nameInput.value = '';
       answerNotRigth.setAttribute('style', 'display: block');
       setTimeout(() => {
-        answerNotRigth.setAttribute('style', 'display: none;');
+        answerNotRigth.setAttribute('style',     'display: none;');
+        activateGameMode();
+        activateGame()
+        formText.innerText = `Угадай дверь:`;
       }, 2000);
-      return false;
+      //return false;
     }
   }
 
