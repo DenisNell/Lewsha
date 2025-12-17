@@ -321,7 +321,7 @@ function activateGame() {
       answerNotRigth.setAttribute('style', 'display: block');
       setTimeout(() => {
         answerNotRigth.setAttribute('style', 'display: none;');
-        activateGameMode();
+        //activateGameMode();
         activateGame()
         formText.innerText = `Угадай дверь:`;
       }, 2000);
@@ -332,7 +332,7 @@ function activateGame() {
       answerRigth.setAttribute('style', 'display: block;');
       setTimeout(() => {
         answerRigth.setAttribute('style', 'display: none;');
-        activateGameMode();
+        //activateGameMode();
         activateGame()
         formText.innerText = `Угадай дверь:`;
       }, 2000);
@@ -345,7 +345,7 @@ function activateGame() {
       answerNotRigth.setAttribute('style', 'display: block');
       setTimeout(() => {
         answerNotRigth.setAttribute('style', 'display: none;');
-        activateGameMode();
+        //activateGameMode();
         activateGame()
         formText.innerText = `Угадай дверь:`;
       }, 2000);
