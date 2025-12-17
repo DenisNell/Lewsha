@@ -135,6 +135,8 @@ const answerRigth = document.querySelector('.answer_rigth')
 const answerNotRigth = document.querySelector('.answer_not-rigth')
 const counterBox = document.querySelector('.counter_box')
 const menuLogo = document.querySelector('.menu_logo')
+const rulesGame = document.querySelector('.rules_game')
+const rulesButton = document.querySelector('.rules_button')
 
 menuGame.addEventListener('click', () => {
   activateGameMode();
@@ -147,10 +149,16 @@ function activateGameMode() {
   burgerMenu.setAttribute('style', 'display: none;');
   buttonGame.setAttribute('style', 'display: flex;');
   menuContainer.classList.remove('active');
-  mainShadow.classList.remove('active');
+  // mainShadow.classList.remove('active');
   form.setAttribute('style', 'display: block;');
   menuLogo.style.display = 'none';
   menuGame.style.display = 'none';
+  rulesGame.style.display = 'block'
+  rulesButton.addEventListener('click', () => {
+    rulesGame.style.display = 'none'
+    mainShadow.classList.remove('active');
+  } )
+  
 
   // Отключить обработчик клика на всех картах
   function removeImageCardHandlers() {
@@ -232,7 +240,8 @@ function activateGame() {
     doorCard.style.display = 'block';
     doorCard.style.margin = '0 auto';
     doorCard.style.maxWidth = '400px';
-    doorCard.style.padding = '25px'
+    doorCard.style.padding = '25px';
+    doorCard.style.marginBottom = '130px';
 
     // Скрываем иконку пальца если она есть
     const icon = doorCard.querySelector('.main_icon');
