@@ -547,7 +547,7 @@ a {
     position: fixed;
     gap: 10px;
     margin-top: 5px;
-    width: 240px;
+    /* width: 240px; */
     z-index: 1000;
     justify-content: space-between;
   }
@@ -562,6 +562,7 @@ a {
     justify-content: center;
     align-items: center;
     border-radius: 50%;
+    white-space: nowrap;
   }
 
   .rigth_counter {
