@@ -179,9 +179,10 @@ a {
     position: fixed;
     top: 0;
     left: 0;
+    height: 50px;
     width: 100%;
     background: rgb(249, 236, 227);
-    z-index: 1000;
+    z-index: 999;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   }
 
@@ -543,8 +544,12 @@ a {
   /* Формы и ответы */
   .counter_box {
     display: none;
+    position: fixed;
     gap: 10px;
-    margin-top: 10px;
+    margin-top: 5px;
+    width: 300px;
+    z-index: 1000;
+    justify-content: space-between;
   }
 
   .rigth_counter,
@@ -584,7 +589,6 @@ a {
   .form_text {
     font-family: var(--second-family);
     font-size: 20px;
-    padding-top: 45px;
     margin-bottom: 10px;
     max-width: 230px;
     text-align: center;

@@ -149,7 +149,7 @@ function activateGameMode() {
   menuContainer.classList.remove('active');
   mainShadow.classList.remove('active');
   form.setAttribute('style', 'display: block;');
-  // menuLogo.style.display = 'none';
+  menuLogo.style.display = 'none';
   menuGame.style.display = 'none';
 
   // Отключить обработчик клика на всех картах
