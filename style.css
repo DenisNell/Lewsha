@@ -547,7 +547,7 @@ a {
     position: fixed;
     gap: 10px;
     margin-top: 5px;
-    width: 250px;
+    width: 240px;
     z-index: 1000;
     justify-content: space-between;
   }
