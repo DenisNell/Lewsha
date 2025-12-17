@@ -140,6 +140,11 @@ const rulesButton = document.querySelector('.rules_button')
 
 menuGame.addEventListener('click', () => {
   activateGameMode();
+rulesGame.style.display = 'block'
+  rulesButton.addEventListener('click', () => {
+    rulesGame.style.display = 'none'
+    mainShadow.classList.remove('active');
+  } )
 });
 
 function activateGameMode() {
@@ -153,11 +158,7 @@ function activateGameMode() {
   form.setAttribute('style', 'display: block;');
   menuLogo.style.display = 'none';
   menuGame.style.display = 'none';
-  rulesGame.style.display = 'block'
-  rulesButton.addEventListener('click', () => {
-    rulesGame.style.display = 'none'
-    mainShadow.classList.remove('active');
-  } )
+  
   
 
   // Отключить обработчик клика на всех картах
