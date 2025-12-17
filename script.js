@@ -115,7 +115,7 @@ function toggleCardImage(event) {
     image2.style.opacity = '0';
   }
 }
-// Функция для добавления обработчиков
+// Функция добавления обработчиков для всех изображений функции toggleCardImage
 function setupImageCards() {
   const imageCards = document.querySelectorAll('.main_imageCard');
   imageCards.forEach(card => {
@@ -125,7 +125,7 @@ function setupImageCards() {
 document.addEventListener('DOMContentLoaded', setupImageCards);
 
 // Игра
-// Игра
+// Игра -----------------------------------------------------
 // Игра
 
 
@@ -134,6 +134,7 @@ const form = document.querySelector('.form_box')
 const answerRigth = document.querySelector('.answer_rigth')
 const answerNotRigth = document.querySelector('.answer_not-rigth')
 const counterBox = document.querySelector('.counter_box')
+const menuLogo = document.querySelector('.menu_logo')
 
 menuGame.addEventListener('click', () => {
   activateGameMode();
@@ -148,6 +149,8 @@ function activateGameMode() {
   menuContainer.classList.remove('active');
   mainShadow.classList.remove('active');
   form.setAttribute('style', 'display: block;');
+  // menuLogo.style.display = 'none';
+  menuGame.style.display = 'none';
 
   // Отключить обработчик клика на всех картах
   function removeImageCardHandlers() {
@@ -179,14 +182,22 @@ let rigth = 0;
 let wrong = 0;
 let question = 0;
 
-function activateGame() { 
+
+
+//-------------------------------------------------
+
+function activateGame() {
+
   isGameActive = true;
+  const formButton = document.querySelector('.form_button')
+  formButton.innerText = `Подсказка`
+
+  const nameInput = document.getElementById('name');
 
   rigthCounter.innerText = `${rigth}`
   wrongCounter.innerText = `${wrong}`
   questionCounter.innerText = `${question}`
 
-  formText.innerText = `Угадай дверь:`;
   const allDoorImages = document.querySelectorAll('.main_image1, .main_image2');
   const doorsArray = Array.from(allDoorImages);
   console.log(doorsArray)
@@ -217,7 +228,7 @@ function activateGame() {
       doorName = titleElement.textContent.trim();
       console.log('Имя выбранной двери:', doorName);
     }
-    //применяем стили
+
     doorCard.style.display = 'block';
     doorCard.style.margin = '0 auto';
     doorCard.style.maxWidth = '400px';
@@ -233,22 +244,53 @@ function activateGame() {
 
     // Скрываем unknown изображение
     const mainUnknown = doorCard.querySelector('.main_unknown');
-    if (mainUnknown) defaultImages.style.display = 'none';
+    if (mainUnknown) mainUnknown.style.display = 'none';
   }
 
   let counter = 0
-  const nameInput = document.getElementById('name');
+  let counterButton = 0;
+
+
+  // Функции добавления подсказки
+  function handleInput(event) {
+    const formButton = document.querySelector('.form_button')
+    const value = event.target.value.trim()
+
+    if (value.length === 0 && counterButton === 0) {
+      formButton.innerText = 'Подсказка'
+    } else {
+      formButton.innerText = 'Проверить'
+    }
+  }
+  nameInput.addEventListener('input', handleInput);
+  function handleOutFocus(event) {
+    const formButton = document.querySelector('.form_button')
+    const value = event.target.value.trim()
+
+    if (counterButton !== 1 && value.length === 0) {
+      formButton.innerText = 'Подсказка';
+    }
+  }
+  nameInput.addEventListener('blur', handleOutFocus);
+
+
+  // Функция логики ответов и удаляет стандартное поведение поля input
   function checkUserInput(event) {
+    const formButton = document.querySelector('.form_button')
+
     // Предотвращаем отправку формы и перезагрузку страницы
     if (event) event.preventDefault();
     const userInput = nameInput.value.trim();
 
+    // Логика игры на действия игрока
     if (userInput === '' && counter === 0) {
       formText.innerText = `Первая буква: ${doorName[0]}`;
+      formButton.innerText = `Проверить`;
       counter += 1;
       question += 1;
+      counterButton += 1;
     }
-
+    // Код второй подсказки (слишком легко)
     // else if (userInput === '' && counter === 1) {
     //   question += 1;
     //   let result = '';
@@ -273,7 +315,6 @@ function activateGame() {
         activateGame()
         formText.innerText = `Угадай дверь:`;
       }, 2000);
-
     }
     else if (userInput.toLowerCase() === doorName.toLowerCase()) {
       rigth += 1
@@ -293,14 +334,14 @@ function activateGame() {
       nameInput.value = '';
       answerNotRigth.setAttribute('style', 'display: block');
       setTimeout(() => {
-        answerNotRigth.setAttribute('style',     'display: none;');
+        answerNotRigth.setAttribute('style', 'display: none;');
         activateGameMode();
         activateGame()
         formText.innerText = `Угадай дверь:`;
       }, 2000);
-      //return false;
     }
   }
+
 
   const checkButton = document.getElementById('checkButton');
   const newCheckButton = checkButton.cloneNode(true);
