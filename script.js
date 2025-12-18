@@ -241,7 +241,7 @@ function activateGame() {
     doorCard.style.display = 'block';
     doorCard.style.margin = '0 auto';
     doorCard.style.maxWidth = '400px';
-    doorCard.style.padding = '25px';
+    doorCard.style.padding = '15px';
     doorCard.style.marginBottom = '130px';
 
     // Скрываем иконку пальца если она есть
