@@ -385,6 +385,7 @@ a {
   }
 
   .main_image2 {
+    display: block;
     position: absolute;
     opacity: 0;
     top: 65px;
@@ -433,7 +434,7 @@ a {
 
   .label {}
 
-  .rules_game{
+  .rules_game {
     display: none;
     position: absolute;
     z-index: 950;
@@ -447,6 +448,7 @@ a {
     border-radius: 10px;
     box-shadow: 5px 5px 10px 5px #242323;
   }
+
   .rules_text {
     position: relative;
     background: white;
@@ -457,7 +459,7 @@ a {
     padding: 10px;
   }
 
-  .rules_button{
+  .rules_button {
     position: absolute;
     top: 460px;
     right: 15px;
@@ -471,9 +473,9 @@ a {
     font-weight: 500;
     font-size: 14px;
     box-shadow: 0 3px 6px rgba(139, 115, 85, 0.2);
-    transition: all 0.3s ease;    
+    transition: all 0.3s ease;
   }
-  
+
 
   .menu_game_title {
     position: relative;
@@ -684,7 +686,7 @@ a {
   .answer_rigth {
     display: none;
     position: absolute;
-    top: 35%;
+    top: 40%;
     left: 50%;
     transform: translate(-50%, -50%);
   }
@@ -699,7 +701,7 @@ a {
   .answer_not-rigth {
     display: none;
     position: absolute;
-    top: 35%;
+    top: 40%;
     left: 50%;
     transform: translate(-50%, -50%);
   }

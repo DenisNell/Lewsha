@@ -127,7 +127,12 @@ document.addEventListener('DOMContentLoaded', setupImageCards);
 // Игра
 // Игра -----------------------------------------------------
 // Игра
-
+// Игра
+// Игра -----------------------------------------------------
+// Игра
+// Игра
+// Игра -----------------------------------------------------
+// Игра
 
 const buttonGame = document.getElementById('burgerGame');
 const form = document.querySelector('.form_box')
@@ -139,12 +144,12 @@ const rulesGame = document.querySelector('.rules_game')
 const rulesButton = document.querySelector('.rules_button')
 
 menuGame.addEventListener('click', () => {
-  activateGameMode();
-rulesGame.style.display = 'block'
+  rulesGame.style.display = 'block'
   rulesButton.addEventListener('click', () => {
     rulesGame.style.display = 'none'
-    mainShadow.classList.remove('active');
-  } )
+    mainShadow.classList.remove('active');    
+  })
+  activateGameMode();
 });
 
 function activateGameMode() {
@@ -158,17 +163,6 @@ function activateGameMode() {
   form.setAttribute('style', 'display: block;');
   menuLogo.style.display = 'none';
   menuGame.style.display = 'none';
-  
-  
-
-  // Отключить обработчик клика на всех картах
-  function removeImageCardHandlers() {
-    const imageCards = document.querySelectorAll('.main_imageCard');
-    imageCards.forEach(card => {
-      card.removeEventListener('click', toggleCardImage);
-    });
-  }
-  removeImageCardHandlers();
 }
 
 buttonGame.addEventListener('click', () => {
@@ -181,6 +175,7 @@ menuGame.addEventListener('click', () => {
   }
 });
 
+
 let isGameActive = false;
 const formText = document.querySelector('.form_text')
 const rigthCounter = document.querySelector('.rigth_counter')
@@ -192,12 +187,145 @@ let wrong = 0;
 let question = 0;
 
 
-
 //-------------------------------------------------
 
 function activateGame() {
-
   isGameActive = true;
+
+  // Скрываем все карточки
+document.querySelectorAll('.main_imageCard').forEach(card => {
+  card.style.display = 'none';
+});
+
+// Скрываем текст карточки
+document.querySelectorAll('.title').forEach(text => {
+  text.style.display = 'none';
+});
+
+  const imagePool = [
+    // Афина
+    { src: 'img/afina-dg.jpg', door: 'Афина' },
+    // Афродита
+    { src: 'img/afrodita-pg.jpg', door: 'Афродита' },
+    { src: 'img/afrodita-po.jpg', door: 'Афродита' },
+    // Бельгия
+    { src: 'img/belgia-dg.jpg', door: 'Бельгия' },
+    // Аккорд
+    { src: 'img/akkord-dg.jpg', door: 'Аккорд' },
+    { src: 'img/akkord-do.jpg', door: 'Аккорд' },
+    // Аврора
+    { src: 'img/avrora-dg.jpg', door: 'Аврора' },
+    { src: 'img/avrora-do.jpg', door: 'Аврора' },
+    // Бордо
+    { src: 'img/bordo-pg.jpg', door: 'Бордо' },
+    // Гамбург
+    { src: 'img/gamburg-pg.jpg', door: 'Гамбург' },
+    { src: 'img/gamburg-po.jpg', door: 'Гамбург' },
+    // Грандорс
+    { src: 'img/grandors-pg.jpg', door: 'Грандорс' },
+    // Гланта
+    { src: 'img/glanta-dg.jpg', door: 'Гланта' },
+    { src: 'img/glanta-do.jpg', door: 'Гланта' },
+    // Джаз
+    { src: 'img/dzhaz-dg.jpg', door: 'Джаз' },
+    { src: 'img/dzhaz-do.jpg', door: 'Джаз' },
+    // Имидж
+    { src: 'img/imidzh-dg.jpg', door: 'Имидж' },
+    { src: 'img/imidzh-do.jpg', door: 'Имидж' },
+    // Кантри
+    { src: 'img/kantri-pg.jpg', door: 'Кантри' },
+    // Кьянти
+    { src: 'img/kyanti-dg.jpg', door: 'Кьянти' },
+    { src: 'img/kyanti-do.jpg', door: 'Кьянти' },
+    // Лира
+    { src: 'img/lira-dg.jpg', door: 'Лира' },
+    { src: 'img/lira-do.jpg', door: 'Лира' },
+    // Ларго
+    { src: 'img/largo-pg.jpg', door: 'Ларго' },
+    // Лайн1
+    { src: 'img/lajn-1-pg.jpg', door: 'Лайн1' },
+    { src: 'img/lajn-1-po.jpg', door: 'Лайн1' },
+    // Лайн2
+    { src: 'img/lajn-2-po.jpg', door: 'Лайн2' },
+    // Мередиан
+    { src: 'img/meridian-dg.jpg', door: 'Мередиан' },
+    // Монте Карло
+    { src: 'img/monte-karlo-pg.jpg', door: 'Монте Карло' },
+    { src: 'img/monte-karlo-po.jpg', door: 'Монте Карло' },
+    // Моцарт
+    { src: 'img/mocart-dg.jpg', door: 'Моцарт' },
+    { src: 'img/mocart-do.jpg', door: 'Моцарт' },
+    // Рондо
+    { src: 'img/rondo-pg.jpg', door: 'Рондо' },
+    { src: 'img/rondo-po.jpg', door: 'Рондо' },
+    // Ретро
+    { src: 'img/retro-dg.jpg', door: 'Ретро' },
+    { src: 'img/retro-do.jpg', door: 'Ретро' },
+    // Сан Ремо
+    { src: 'img/san-remo-pg.jpg', door: 'Сан Ремо' },
+    // Сан Тропе
+    { src: 'img/san_trope-do.jpg', door: 'Сан Тропе' },
+    // Соло
+    { src: 'img/solo-pg.jpg', door: 'Соло' },
+    // Сюита
+    { src: 'img/syuita-dg.jpg', door: 'Сюита' },
+    { src: 'img/syuita-do.jpg', door: 'Сюита' },
+    // Орлеан
+    { src: 'img/orlean-pg.jpg', door: 'Орлеан' },
+    // Флоренция
+    { src: 'img/floren-pg.jpg', door: 'Флоренция' },
+    // Челси
+    { src: 'img/chelsi-dg.jpg', door: 'Челси' },
+    { src: 'img/chelsi-do.jpg', door: 'Челси' },
+    // Урбан
+    { src: 'img/urban-pg.jpg', door: 'Урбан' },
+    // Элегия
+    { src: 'img/elegiya-dg.jpg', door: 'Элегия' },
+    { src: 'img/elegiya-do.jpg', door: 'Элегия' },
+    // Ультра С1
+    { src: 'img/ultra-c1-dg.jpg', door: 'Ультра С1' },
+    { src: 'img/ultra-c1-do.jpg', door: 'Ультра С1' },
+    // Ультра С2
+    { src: 'img/ultra-c2-dg.jpg', door: 'Ультра С2' },
+    { src: 'img/ultra-c2-do.jpg', door: 'Ультра С2' },
+    // Ультра С3
+    { src: 'img/ultra-c3-dg.jpg', door: 'Ультра С3' },
+    { src: 'img/ultra-s3-do.jpg', door: 'Ультра С3' },
+    // Ультра С5
+    { src: 'img/ultra-s5-pg.jpg', door: 'Ультра С5' },
+    { src: 'img/ultra-s5-po.jpg', door: 'Ультра С5' }
+  ];  
+
+  // Переменные для хранения текущего состояния игры
+  let currentRandomImage = null;
+  let doorName = '';  
+  
+  // Получаем случайное изображание
+  function getRandomImageFromPool() {
+    const randomIndex = Math.floor(Math.random() * imagePool.length);
+    return imagePool[randomIndex];
+  }
+
+  // Заполняем div случайным изображением
+  function displayInExistingElement() {
+    const displayDiv = document.getElementById('randomImageDisplay');
+    if (!displayDiv) return;
+
+    currentRandomImage = getRandomImageFromPool();
+    doorName = currentRandomImage.door;
+
+    displayDiv.innerHTML = `
+    <div style="display: inline-block; text-align: center;">
+      <img src="${currentRandomImage.src}" 
+          alt="${doorName}" 
+          style="max-width: 400px;
+          height: auto;          
+          margin-top: 15px;">          
+    </div>
+  `;
+  }
+  displayInExistingElement()
+  
   const formButton = document.querySelector('.form_button')
   formButton.innerText = `Подсказка`
 
@@ -206,56 +334,6 @@ function activateGame() {
   rigthCounter.innerText = `${rigth}`
   wrongCounter.innerText = `${wrong}`
   questionCounter.innerText = `${question}`
-
-  const allDoorImages = document.querySelectorAll('.main_image1, .main_image2');
-  const doorsArray = Array.from(allDoorImages);
-  console.log(doorsArray)
-
-  if (doorsArray.length === 0) return;
-
-  // Скрываем все карточки
-  document.querySelectorAll('.main_imageCard').forEach(card => {
-    card.style.display = 'none';
-  });
-
-  // Скрываем текст карточки
-  document.querySelectorAll('.title').forEach(text => {
-    text.style.display = 'none';
-  });
-
-  // Показываем случайную дверь
-  const randomDoor = doorsArray[Math.floor(Math.random() * doorsArray.length)];
-  const doorCard = randomDoor.closest('.main_imageCard');
-  console.log(doorCard)
-
-  // Показываем только эту карточку
-  let doorName = '';
-  if (doorCard) {
-    // Получаем имя двери из тега p
-    const titleElement = doorCard.querySelector('.title');
-    if (titleElement) {
-      doorName = titleElement.textContent.trim();
-      console.log('Имя выбранной двери:', doorName);
-    }
-
-    doorCard.style.display = 'block';
-    doorCard.style.margin = '0 auto';
-    doorCard.style.maxWidth = '400px';
-    doorCard.style.padding = '25px';
-    doorCard.style.marginBottom = '130px';
-
-    // Скрываем иконку пальца если она есть
-    const icon = doorCard.querySelector('.main_icon');
-    if (icon) icon.style.display = 'none';
-
-    // Скрываем default изображение
-    const defaultImages = doorCard.querySelector('.pic_default');
-    if (defaultImages) defaultImages.style.display = 'none';
-
-    // Скрываем unknown изображение
-    const mainUnknown = doorCard.querySelector('.main_unknown');
-    if (mainUnknown) mainUnknown.style.display = 'none';
-  }
 
   let counter = 0
   let counterButton = 0;
@@ -351,7 +429,6 @@ function activateGame() {
       }, 2000);
     }
   }
-
 
   const checkButton = document.getElementById('checkButton');
   const newCheckButton = checkButton.cloneNode(true);
