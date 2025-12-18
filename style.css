@@ -66,6 +66,7 @@
   }
 }
 
+
 @keyframes shake {
 
   0%,
@@ -365,7 +366,7 @@ a {
   }
 
   .main_imageCard {
-    padding-top: 65px !important;
+    padding-top: 65px;
     position: relative;
   }
 
@@ -532,7 +533,6 @@ a {
   }
 
   .menu_game_glow {
-    /* display: none; */
     animation: spin 2s linear infinite;
     position: absolute;
     inset: -10px;
@@ -591,7 +591,6 @@ a {
     position: fixed;
     gap: 10px;
     margin-top: 5px;
-    /* width: 240px; */
     z-index: 1000;
     justify-content: space-between;
   }
@@ -623,7 +622,7 @@ a {
 
   .form_box {
     display: none;
-    margin-top: 65px;
+    margin-top: 65px !important;
   }
 
   .form_input_button {
@@ -675,7 +674,7 @@ a {
     font-weight: 500;
     font-size: 14px;
     box-shadow: 0 3px 6px rgba(139, 115, 85, 0.2);
-    transition: all 0.3s ease;    
+    transition: all 0.3s ease;
   }
 
   .form_button:active {
