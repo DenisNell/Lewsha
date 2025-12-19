@@ -282,7 +282,7 @@ class HeartsSystem {
   loseHeart() {
     if (this.currentHearts > 0) {
       const heartToRemove = this.hearts[this.currentHearts - 1];
-      heartToRemove.classList.add('lost');
+      heartToRemove.classList.add('fade-out');
       this.currentHearts--;
       return this.currentHearts;
     }
