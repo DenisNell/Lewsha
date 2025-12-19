@@ -612,7 +612,7 @@ a {
   .hearts-container {
     z-index: 1000;
     position: fixed;
-    top: 3px;
+    top: 5px;
     left: 50px;
     display: flex;
     gap: 10px;
