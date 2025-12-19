@@ -145,7 +145,8 @@ a {
 
 .main,
 .menu,
-.rules {
+.rules,
+.game {
   display: none;
 }
 
@@ -174,7 +175,8 @@ a {
   }
 
   .menu,
-  .rules {
+  .rules,
+  .game {
     display: block;
   }
 
@@ -434,6 +436,8 @@ a {
 
   .label {}
 
+  /* Игра */
+
   .rules_game {
     display: none;
     position: absolute;
@@ -444,7 +448,7 @@ a {
     margin: auto;
     max-width: 250px;
     width: 100%;
-    height: 505px;
+    height: 367px;
     border-radius: 10px;
     box-shadow: 5px 5px 10px 5px #242323;
   }
@@ -461,8 +465,8 @@ a {
 
   .rules_button {
     position: absolute;
-    top: 460px;
-    right: 15px;
+    top: 310px;
+    right: 25px;
     animation: pulse2 2s infinite ease-in-out;
     background: linear-gradient(to bottom, rgb(252, 126, 0), #f2e7dd);
     height: 30px;
@@ -588,6 +592,66 @@ a {
   .label {}
 
   /* Формы и ответы */
+  .game {}
+
+  .game.active {
+    background: rgba(0, 0, 0, 0.5);
+    opacity: 0.5;
+    transition: opacity 0.3s, visibility 0.5s;
+  }
+
+  .life_box {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    margin-top: 10px;
+    font-size: 20px;
+  }
+
+  .hearts-container {
+    z-index: 1000;
+    position: fixed;
+    top: 3px;
+    left: 50px;
+    display: flex;
+    gap: 10px;
+    font-size: 30px;
+    display: none;
+  }
+
+  .heart {
+    transition: all 0.3s ease;
+  }
+
+  .heart.lost {
+    opacity: 0.2;
+    transform: scale(0.8);
+  }
+
+  /* Альтернативно с CSS-анимацией удаления */
+  .heart.fade-out {
+    animation: fadeOut 0.5s forwards;
+  }
+
+  @keyframes fadeOut {
+    from {
+      opacity: 1;
+      transform: scale(1);
+    }
+
+    to {
+      opacity: 0;
+      transform: scale(0);
+    }
+  }
+
+
+  .game_box {
+    display: grid;
+    justify-items: center;
+    grid-template-columns: 1fr;
+  }
+
   .counter_box {
     display: none;
     position: fixed;
@@ -683,35 +747,31 @@ a {
     transform: scale(0.90);
   }
 
-  .answer_rigth {
+  .answer_rigth,
+  .answer_not-rigth,
+  .lose_game,
+  .win_game {
     display: none;
     position: absolute;
-    top: 40%;
+    top: 30%;
     left: 50%;
     transform: translate(-50%, -50%);
   }
 
-  .text_answer-rigth {
+  .text_answer-rigth,
+  .win_text {
     color: #05db05;
     font-size: 30px;
     text-shadow: 0 0 10px #000000;
     animation: pulse3 2s ease-in-out;
   }
 
-  .answer_not-rigth {
-    display: none;
-    position: absolute;
-    top: 40%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-  }
-
-  .text_answer_not-rigth {
+  .text_answer_not-rigth,
+  .lose_text {
     color: #fe0000;
     font-size: 30px;
     text-shadow: 0 0 10px #000000;
     white-space: nowrap;
     animation: pulse3 2s ease-in-out;
   }
-
 }

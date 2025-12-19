@@ -105,47 +105,15 @@
     </div>
   </nav>
 
-  <section class="rules">
-    <div class="rules_game">
-      <p class="rules_text"> Добро пожаловать в игру "Угадайка". Вам надо правильно ввести название двери . <br><br> Вам
-        доступна одна 'Подсказка'. Далее вам придется ввести название двери и нажать 'Проверить' или отправить для
-        проверки пустое поле. Пустое поле игра засчитает за ошибку.<br><br>Пока доступен только бесконечный режим, далее
-        игра будет развиваться <br> и будут доступны <br>новые режимы</p>
-      <button class="rules_button">OK</button>
-    </div>
-  </section>
+
 
   <section class="main">
     <div class="container">
       <div class="main_imageBox">
 
-        <div class="form_box">
-          <form class="form" action="">
-            <p class="form_text">Угадай дверь:</p>
-            <div class="form_input_button">
-              <input id="name" class="form_input" type="text" placeholder="...">
-              <button id="checkButton" class="form_button" type="submit">Подсказка</button>
-            </div>
-          </form>
-        </div>
-
-        <div class="counter_box">
-          <div class="rigth_box">
-            <p class="rigth_text">Верно:</p>
-            <div class="rigth_counter"></div>
-          </div>
-          <div class="question_box">
-            <p class="question_text">Подсказок:</p>
-            <div class="question_counter"></div>
-          </div>
-          <div class="wrong_box">
-            <p class="wrong_text">Не верно:</p>
-            <div class="wrong_counter"></div>
-          </div>
-        </div>
-
-        <div id="randomImageDisplay">
-          <!-- Сюда будет вставлено изображение -->
+        <div class="image_default">
+          <img class="pic_default" src="img/unknown.png" alt="">
+          <p class="text_default menu_link">Выбери что-нибудь :( </p>
         </div>
 
         <div id="afina" class="main_imageCard image_patina">
@@ -404,22 +372,80 @@
           <img class="main_icon" src="img/hand-finger.png" alt="">
         </div>
 
-        <div class="answer_rigth">
-          <p class="text_answer-rigth">Верно!</p>
-        </div>
-
-        <div class="answer_not-rigth">
-          <p class="text_answer_not-rigth">Ошибка!</p>
-        </div>
-
-        <div class="image_default">
-          <img class="pic_default" src="img/unknown.png" alt="">
-          <p class="text_default menu_link">Выбери что-нибудь :( </p>
-        </div>
-
       </div>
     </div>
   </section>
+
+  <section class="rules">
+    <div class="rules_game">
+      <p class="rules_text"> Добро пожаловать в игру "Угадайка". Вам надо правильно ввести название двери . <br><br> Вам
+        доступна одна 'Подсказка'. Далее вам придется ввести название двери и нажать 'Проверить' или отправить для
+        проверки пустое поле. <br>Пустое поле <br>игра засчитает <br>за ошибку.</p>
+      <button class="rules_button">OK</button>
+    </div>
+  </section>
+
+  <section class="game">
+    <div class="game_box">
+
+      <div class="life_box">
+        <p class="life_text">Осталось жизней:</p>
+      </div>
+
+      <div class="hearts-container">
+        <div class="heart" data-heart="1">❤️</div>
+        <div class="heart" data-heart="2">❤️</div>
+        <div class="heart" data-heart="3">❤️</div>
+      </div>
+
+      <div class="counter_box">
+        <div class="rigth_box">
+          <p class="rigth_text">Верно:</p>
+          <div class="rigth_counter"></div>
+        </div>
+        <div class="question_box">
+          <p class="question_text">Подсказок:</p>
+          <div class="question_counter"></div>
+        </div>
+        <div class="wrong_box">
+          <p class="wrong_text">Не верно:</p>
+          <div class="wrong_counter"></div>
+        </div>
+      </div>
+
+      <div class="form_box">
+        <form class="form" action="">
+          <p class="form_text">Угадай дверь:</p>
+          <div class="form_input_button">
+            <input id="name" class="form_input" type="text" placeholder="...">
+            <button id="checkButton" class="form_button" type="submit">Подсказка</button>
+          </div>
+        </form>
+      </div>
+
+      <div id="randomImageDisplay">
+        <!-- Сюда будет вставлено изображение -->
+      </div>
+
+      <div class="answer_rigth">
+        <p class="text_answer-rigth">Верно!</p>
+      </div>
+
+      <div class="answer_not-rigth">
+        <p class="text_answer_not-rigth">Ошибка!</p>
+      </div>
+
+      <div class="lose_game">
+        <p class="lose_text">Неудача</p>
+      </div>
+
+      <div class="win_game">
+        <p class="win_text">Победа!</p>
+      </div>
+
+    </div>
+  </section>
+
   <div class="pc_block">
     <img class="pc_image" src="img/unknown.png" alt="">
     <p class="pc_text">Данное приложение разработано для мобильных устройств. <br><br> Перейдите на телефон или планшет,
