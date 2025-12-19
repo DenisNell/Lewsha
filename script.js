@@ -366,7 +366,7 @@ function activateGame() {
           alt="${doorName}" 
           style="max-width: 400px;
           height: auto;          
-          margin-top: 15px;">          
+          margin-top: 25px;">          
     </div>
   `;
   }
