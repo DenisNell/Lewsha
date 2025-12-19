@@ -463,7 +463,7 @@ function activateGame() {
       rigth += 1
       nextCard += 1
       nameInput.value = '';
-      if (nextCard === newArray.length + 1) {
+      if (nextCard === newArray.length) {
         winGame.setAttribute('style', 'display: block;');
         setTimeout(() => {
           winGame.setAttribute('style', 'display: none;');
