@@ -376,12 +376,6 @@ function activateGame() {
   formButton.innerText = `Подсказка`
 
 
-formButton.addEventListener('click', function() {
-    button.disabled = true;
-    setTimeout(() => {
-        button.disabled = false;
-    }, 2000);
-});
 
   const nameInput = document.getElementById('name');
 
