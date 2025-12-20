@@ -375,10 +375,8 @@ function activateGame() {
   const formButton = document.querySelector('.form_button')
   formButton.innerText = `Подсказка`
 
-// Пример с JavaScript
-const button = document.getElementById('myButton');
 
-button.addEventListener('click', function() {
+formButton.addEventListener('click', function() {
     button.disabled = true;
     setTimeout(() => {
         button.disabled = false;
