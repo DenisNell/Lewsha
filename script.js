@@ -167,8 +167,8 @@ const imagePool = [
   // Афина
   { src: 'img/afina-dg.jpg', door: 'Афина' },
   // Афродита
-  { src: 'img/afrodita-pg.jpg', door: 'Афродита' },
-  { src: 'img/afrodita-po.jpg', door: 'Афродита' },
+  { src: 'img/afrodita-dg.jpg', door: 'Афродита' },
+  { src: 'img/afrodita-do.jpg', door: 'Афродита' },
   // Бельгия
   { src: 'img/belgia-dg.jpg', door: 'Бельгия' },
   // Аккорд
@@ -178,12 +178,12 @@ const imagePool = [
   { src: 'img/avrora-dg.jpg', door: 'Аврора' },
   { src: 'img/avrora-do.jpg', door: 'Аврора' },
   // Бордо
-  { src: 'img/bordo-pg.jpg', door: 'Бордо' },
+  { src: 'img/bordo-dg.jpg', door: 'Бордо' },
   // Гамбург
-  { src: 'img/gamburg-pg.jpg', door: 'Гамбург' },
-  { src: 'img/gamburg-po.jpg', door: 'Гамбург' },
+  { src: 'img/gamburg-dg.jpg', door: 'Гамбург' },
+  { src: 'img/gamburg-do.jpg', door: 'Гамбург' },
   // Грандорс
-  { src: 'img/grandors-pg.jpg', door: 'Грандорс' },
+  { src: 'img/grandors-dg.jpg', door: 'Грандорс' },
   // Гланта
   { src: 'img/glanta-dg.jpg', door: 'Гланта' },
   { src: 'img/glanta-do.jpg', door: 'Гланта' },
@@ -194,7 +194,7 @@ const imagePool = [
   { src: 'img/imidzh-dg.jpg', door: 'Имидж' },
   { src: 'img/imidzh-do.jpg', door: 'Имидж' },
   // Кантри
-  { src: 'img/kantri-pg.jpg', door: 'Кантри' },
+  { src: 'img/kantri-dg.jpg', door: 'Кантри' },
   // Кьянти
   { src: 'img/kyanti-dg.jpg', door: 'Кьянти' },
   { src: 'img/kyanti-do.jpg', door: 'Кьянти' },
@@ -202,59 +202,67 @@ const imagePool = [
   { src: 'img/lira-dg.jpg', door: 'Лира' },
   { src: 'img/lira-do.jpg', door: 'Лира' },
   // Ларго
-  { src: 'img/largo-pg.jpg', door: 'Ларго' },
+  { src: 'img/largo-dg.jpg', door: 'Ларго' },
   // Лайн1
-  { src: 'img/lajn-1-pg.jpg', door: 'Лайн1' },
-  { src: 'img/lajn-1-po.jpg', door: 'Лайн1' },
+  { src: 'img/lajn_1-dg.jpg', door: 'Лайн1' },
+  { src: 'img/lajn_1-do.jpg', door: 'Лайн1' },
   // Лайн2
-  { src: 'img/lajn-2-po.jpg', door: 'Лайн2' },
+  { src: 'img/lajn_2-do.jpg', door: 'Лайн2' },
+  // Лайн4
+  { src: 'img/lajn_4-dg.jpg', door: 'Лайн4' },
   // Мередиан
   { src: 'img/meridian-dg.jpg', door: 'Мередиан' },
   // Монте Карло
-  { src: 'img/monte-karlo-pg.jpg', door: 'Монте Карло' },
-  { src: 'img/monte-karlo-po.jpg', door: 'Монте Карло' },
+  { src: 'img/monte_karlo-pg.jpg', door: 'Монте Карло' },
+  { src: 'img/monte_karlo-po.jpg', door: 'Монте Карло' },
   // Моцарт
   { src: 'img/mocart-dg.jpg', door: 'Моцарт' },
   { src: 'img/mocart-do.jpg', door: 'Моцарт' },
   // Рондо
-  { src: 'img/rondo-pg.jpg', door: 'Рондо' },
-  { src: 'img/rondo-po.jpg', door: 'Рондо' },
+  { src: 'img/rondo-dg.jpg', door: 'Рондо' },
+  { src: 'img/rondo-do.jpg', door: 'Рондо' },
   // Ретро
   { src: 'img/retro-dg.jpg', door: 'Ретро' },
   { src: 'img/retro-do.jpg', door: 'Ретро' },
   // Сан Ремо
-  { src: 'img/san-remo-pg.jpg', door: 'Сан Ремо' },
+  { src: 'img/san_remo-dg.jpg', door: 'Сан Ремо' },
   // Сан Тропе
   { src: 'img/san_trope-do.jpg', door: 'Сан Тропе' },
   // Соло
-  { src: 'img/solo-pg.jpg', door: 'Соло' },
+  { src: 'img/solo-dg.jpg', door: 'Соло' },
   // Сюита
   { src: 'img/syuita-dg.jpg', door: 'Сюита' },
   { src: 'img/syuita-do.jpg', door: 'Сюита' },
   // Орлеан
-  { src: 'img/orlean-pg.jpg', door: 'Орлеан' },
+  { src: 'img/orlean-dg.jpg', door: 'Орлеан' },
   // Флоренция
-  { src: 'img/floren-pg.jpg', door: 'Флоренция' },
+  { src: 'img/floren-dg.jpg', door: 'Флоренция' },
   // Челси
   { src: 'img/chelsi-dg.jpg', door: 'Челси' },
   { src: 'img/chelsi-do.jpg', door: 'Челси' },
   // Урбан
-  { src: 'img/urban-pg.jpg', door: 'Урбан' },
+  { src: 'img/urban-dg.jpg', door: 'Урбан' },
   // Элегия
   { src: 'img/elegiya-dg.jpg', door: 'Элегия' },
   { src: 'img/elegiya-do.jpg', door: 'Элегия' },
   // Ультра С1
-  { src: 'img/ultra-c1-dg.jpg', door: 'Ультра С1' },
-  { src: 'img/ultra-c1-do.jpg', door: 'Ультра С1' },
+  { src: 'img/ultra_c1-dg.jpg', door: 'Ультра С1' },
+  { src: 'img/ultra_c1-do.jpg', door: 'Ультра С1' },
   // Ультра С2
-  { src: 'img/ultra-c2-dg.jpg', door: 'Ультра С2' },
-  { src: 'img/ultra-c2-do.jpg', door: 'Ультра С2' },
+  { src: 'img/ultra_c2-dg.jpg', door: 'Ультра С2' },
+  { src: 'img/ultra_c2-do.jpg', door: 'Ультра С2' },
   // Ультра С3
-  { src: 'img/ultra-c3-dg.jpg', door: 'Ультра С3' },
-  { src: 'img/ultra-s3-do.jpg', door: 'Ультра С3' },
+  { src: 'img/ultra_c3-dg.jpg', door: 'Ультра С3' },
+  { src: 'img/ultra_s3-do.jpg', door: 'Ультра С3' },
   // Ультра С5
-  { src: 'img/ultra-s5-pg.jpg', door: 'Ультра С5' },
-  { src: 'img/ultra-s5-po.jpg', door: 'Ультра С5' }
+  { src: 'img/ultra_s5-dg.jpg', door: 'Ультра С5' },
+  { src: 'img/ultra_s5-do.jpg', door: 'Ультра С5' },
+  // Ультра БС4
+  { src: 'img/ultra_bs4-dg.jpg', door: 'Ультра БС4' },
+  { src: 'img/ultra_bs4-do.jpg', door: 'Ультра БС4' },
+  // Женева
+  { src: 'img/geneva-dg.jpg', door: 'Женева' },
+  { src: 'img/geneva-do.jpg', door: 'Женева' }
 ];
 
 // Функция для перемешивания массива (алгоритм Фишера-Йетса)
