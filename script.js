@@ -213,8 +213,8 @@ const imagePool = [
   // Мередиан
   { src: 'img/meridian-dg.jpg', door: 'Мередиан' },
   // Монте Карло
-  { src: 'img/monte_karlo-pg.jpg', door: 'Монте Карло' },
-  { src: 'img/monte_karlo-po.jpg', door: 'Монте Карло' },
+  { src: 'img/monte_karlo-dg.jpg', door: 'Монте Карло' },
+  { src: 'img/monte_karlo-do.jpg', door: 'Монте Карло' },
   // Моцарт
   { src: 'img/mocart-dg.jpg', door: 'Моцарт' },
   { src: 'img/mocart-do.jpg', door: 'Моцарт' },
