@@ -519,7 +519,7 @@ a {
     border: 0;
     padding: var(--border-size);
     display: flex;
-    width: max-content;
+    /* width: max-content; */
     width: 180px;
     border-radius: var(--border-radius);
     background-color: transparent;
