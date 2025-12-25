@@ -514,7 +514,7 @@ a {
     --border-angle-2: 90deg;
     --border-angle-3: 180deg;
     color: inherit;
-    font-size: calc(0.8rem + 4vmin);
+    font-size: 30px;
     font-family: inherit;
     border: 0;
     padding: var(--border-size);
