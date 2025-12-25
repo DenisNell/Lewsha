@@ -520,7 +520,7 @@ a {
     padding: var(--border-size);
     display: flex;
     width: max-content;
-    width: 170px;
+    width: 180px;
     border-radius: var(--border-radius);
     background-color: transparent;
     background-image: conic-gradient(from var(--border-angle-1) at 10% 15%,
@@ -551,7 +551,7 @@ a {
   .game_game p,
   .game_Exam p {    
     background: var(--background);
-    width: 165px;
+    width: 175px;
     border-radius: calc(var(--border-radius) - var(--border-size));
     color: var(--foreground);
   }
