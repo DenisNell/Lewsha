@@ -1,16 +1,73 @@
+/* Красивая кнопка */
+@property --border-angle-1 {
+  syntax: "<angle>";
+  inherits: true;
+  initial-value: 0deg;
+}
+
+@property --border-angle-2 {
+  syntax: "<angle>";
+  inherits: true;
+  initial-value: 90deg;
+}
+
+@property --border-angle-3 {
+  syntax: "<angle>";
+  inherits: true;
+  initial-value: 180deg;
+}
+
+:root {
+  --bright-blue: rgb(0, 100, 255);
+  --bright-green: rgb(0, 255, 0);
+  --bright-red: rgb(255, 0, 0);
+  --background: black;
+  --foreground: white;
+  --border-size: 2px;
+  --border-radius: 0.75em;
+}
+
+/* Display-P3 color, when supported. */
+@supports (color: color(display-p3 1 1 1)) {
+  :root {
+    --bright-blue: color(display-p3 0 0.2 1);
+    --bright-green: color(display-p3 0.4 1 0);
+    --bright-red: color(display-p3 1 0 0);
+  }
+}
+
+@keyframes rotateBackground {
+  to {
+    --border-angle-1: 360deg;
+  }
+}
+
+@keyframes rotateBackground2 {
+  to {
+    --border-angle-2: -270deg;
+  }
+}
+
+@keyframes rotateBackground3 {
+  to {
+    --border-angle-3: 540deg;
+  }
+}
+
+.label {}
+
 :root {
   --font-family: "Playfair", sans-serif;
   --second-family: "Inter", sans-serif;
   --third-family: "Barlow", sans-serif;
 
-
   --general: #2f2e2e;
 
   --black: oklch(17.7% 0.105 262.48);
-  /* --purple: oklch(60% 0.37 294.7); */
+  --purple: oklch(60% 0.37 294.7);
   --orange: oklch(60% 0.37 64.65);
   --yellow: oklch(60% 0.37 109.08);
-  /* --blue: oklch(60% 0.37 237.06); */
+  --blue: oklch(60% 0.37 237.06);
   --black-alpha-50: color-mix(in oklch, var(--black), transparent);
 }
 
@@ -438,6 +495,89 @@ a {
 
   /* Игра */
 
+  .game_startMenu {
+    display: none;
+    background-color: black;
+    max-width: 1024px;
+    width: 100%;
+    min-height: 1024px;
+  }
+
+  .game_training,
+  .game_game,
+  .game_Exam {
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, 0);
+    cursor: pointer;
+    --border-angle-1: 0deg;
+    --border-angle-2: 90deg;
+    --border-angle-3: 180deg;
+    color: inherit;
+    font-size: calc(0.8rem + 4vmin);
+    font-family: inherit;
+    border: 0;
+    padding: var(--border-size);
+    display: flex;
+    width: max-content;
+    width: 170px;
+    border-radius: var(--border-radius);
+    background-color: transparent;
+    background-image: conic-gradient(from var(--border-angle-1) at 10% 15%,
+        transparent,
+        var(--bright-blue) 10%,
+        transparent 30%,
+        transparent),
+      conic-gradient(from var(--border-angle-2) at 70% 60%,
+        transparent,
+        var(--bright-green) 10%,
+        transparent 60%,
+        transparent),
+      conic-gradient(from var(--border-angle-3) at 50% 20%,
+        transparent,
+        var(--bright-red) 10%,
+        transparent 50%,
+        transparent);
+
+    animation:
+      rotateBackground 3s linear infinite,
+      rotateBackground2 8s linear infinite,
+      rotateBackground3 13s linear infinite;
+
+    height: 50px;    
+  }
+  
+  .game_training p,
+  .game_game p,
+  .game_Exam p {    
+    background: var(--background);
+    width: 165px;
+    border-radius: calc(var(--border-radius) - var(--border-size));
+    color: var(--foreground);
+  }
+
+
+  .game_training {
+    top: 35%;
+  }
+
+  .game_game {
+    top: 45%;
+  }
+
+  .game_Exam {
+    top: 55%;
+  }
+
+  .game_tainingText,
+  .game_gameText,
+  .game_examText {
+    color: white;
+    text-align: center;
+    padding-top: 5px;
+  }
+
+
   .rules_game {
     display: none;
     position: absolute;
@@ -601,13 +741,13 @@ a {
     transition: opacity 0.3s, visibility 0.5s;
   }
 
-  .life_box {
+  /* .life_box {
     display: none;
     position: fixed;
     z-index: 1000;
     margin-top: 10px;
     font-size: 20px;
-  }
+  } */
 
   .hearts-container {
     z-index: 1000;

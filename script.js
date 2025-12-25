@@ -149,10 +149,13 @@ const wrongCounter = document.querySelector('.wrong_counter')
 const questionCounter = document.querySelector('.question_counter')
 const loseGame = document.querySelector('.lose_game')
 const gameShadow = document.querySelector('.game')
-const lifeBox = document.querySelector('.life_box')
+// const lifeBox = document.querySelector('.life_box')
 const heartsContainer = document.querySelector('.hearts-container')
 const winGame = document.querySelector('.win_game')
-
+const gameStartMenu = document.querySelector('.game_startMenu')
+const gameTraining = document.querySelector('.game_training')
+const gameGame = document.querySelector('.game_game')
+const menuBox = document.querySelector('.menubox')
 
 let isGameActive = false;
 let rigth = 0;
@@ -319,48 +322,63 @@ function resetGame() {
   newArray = shuffleArray(imagePool); // Перемешиваем карточки заново
 }
 
-
 buttonGame.addEventListener('click', () => {
   location.reload();
 });
 
 menuGame.addEventListener('click', () => {
-  gameShadow.classList.add('active')
-  rulesGame.style.display = 'block'
+  // gameShadow.classList.add('active')
+  // rulesGame.style.display = 'block'
+  activateGameMode();
+  gameStartMenu.style.display = 'block'
 
-  rulesButton.addEventListener('click', () => {
-    rulesGame.style.display = 'none'
-    gameShadow.classList.remove('active');
+  gameTraining.addEventListener('click', () => {
+    counterBox.style.display = 'flex';
+    form.setAttribute('style', 'display: block;');
+    gameStartMenu.style.display = 'none'
+    activateTraining()
+    menuBox.style.background = '#f0dfc8'
+  })
+  gameGame.addEventListener('click', () => {
+    heartsContainer.style.display = 'flex'
+    form.setAttribute('style', 'display: block;');
+    gameStartMenu.style.display = 'none'
+    activateGame()
+    menuBox.style.background = '#f0dfc8'
   })
 
-  activateGameMode();
-  if (!isGameActive) {
-    activateGame();
-  }
+  // rulesButton.addEventListener('click', () => {
+  //   // rulesGame.style.display = 'none'
+  //   // gameShadow.classList.remove('active');
+  // })
+  
+  // if (!isGameActive) {
+  //   activateGame();
+  // }
 });
 
 //Активация игрового режима
 function activateGameMode() {
+  menuBox.style.background = 'black'
   main.style.display = 'none'
   menuLogo.style.display = 'none';
   menuGame.style.display = 'none';
-  counterBox.style.display = 'none';
-  lifeBox.style.display = 'none'
-  heartsContainer.style.display = 'flex'
   buttonGame.classList.add('active');
   burgerMenu.setAttribute('style', 'display: none;');
   buttonGame.setAttribute('style', 'display: flex;');
   menuContainer.classList.remove('active');
-  form.setAttribute('style', 'display: block;');
+  
+  // lifeBox.style.display = 'none'
+  
 }
 
 //Активация игры
 function activateGame() {
   isGameActive = true;
-  lifeBox.innerText = `Осталось жизней: ${life}`
+  // lifeBox.innerText = `Осталось жизней: ${life}`
 
   // Заполняем div случайным изображением
-  function displayInExistingElement() {
+  function displayInExistingElement() {    
     const displayDiv = document.getElementById('randomImageDisplay');
     if (!displayDiv) return;
     let imageObject = newArray[nextCard];
@@ -382,8 +400,6 @@ function activateGame() {
 
   const formButton = document.querySelector('.form_button')
   formButton.innerText = `Подсказка`
-
-
 
   const nameInput = document.getElementById('name');
 
@@ -444,7 +460,7 @@ function activateGame() {
       life -= 1
       hearts.loseHeart();
       if (life === 0) {
-        lifeBox.innerText = `Осталось жизней: ${life}`
+        // lifeBox.innerText = `Осталось жизней: ${life}`
         loseGame.setAttribute('style', 'display: block;');
         setTimeout(() => {
           loseGame.setAttribute('style', 'display: none;');
@@ -456,7 +472,7 @@ function activateGame() {
       }
       else {
         formText.innerText = `${doorName}`;
-        lifeBox.innerText = `Осталось жизней: ${life}`
+        // lifeBox.innerText = `Осталось жизней: ${life}`
         console.log(`Получено: ${userInput} неправильно`);
         console.log(`Осталось жизней ${life}`)
         answerNotRigth.setAttribute('style', 'display: block');
@@ -500,7 +516,7 @@ function activateGame() {
       nextCard += 1
       hearts.loseHeart();
       nameInput.value = '';
-      lifeBox.innerText = `Осталось жизней: ${life}`
+      // lifeBox.innerText = `Осталось жизней: ${life}`
       if (life === 0) {
         loseGame.setAttribute('style', 'display: block;');
         setTimeout(() => {
@@ -526,7 +542,6 @@ function activateGame() {
     }
   }
 
-
   //---------------------------------------
   const checkButton = document.getElementById('checkButton');
   const newCheckButton = checkButton.cloneNode(true);
@@ -545,5 +560,151 @@ function activateGame() {
       checkUserInput(event);
     }
   });
-
 };
+
+function activateTraining() {
+  isGameActive = true;
+  formText.innerText = `Угадай дверь:`
+
+  // Получаем случайное изображание
+  function getRandomImageFromPool() {
+    const randomIndex = Math.floor(Math.random() * imagePool.length);
+    return imagePool[randomIndex];
+  }
+
+  // Заполняем div случайным изображением
+  function displayInExistingElement() {
+    const displayDiv = document.getElementById('randomImageDisplay');
+    if (!displayDiv) return;
+    currentRandomImage = getRandomImageFromPool();
+    doorName = currentRandomImage.door;
+    displayDiv.innerHTML = `
+    <div style="display: inline-block; text-align: center;">
+      <img src="${currentRandomImage.src}" 
+          alt="${doorName}" 
+          style="max-width: 400px;
+          height: auto;          
+          margin-top: 15px;">          
+    </div>
+  `;
+  }
+  displayInExistingElement()
+
+  const formButton = document.querySelector('.form_button')
+  formButton.innerText = `Подсказка`
+
+  const nameInput = document.getElementById('name');
+
+  rigthCounter.innerText = `${rigth}`
+  wrongCounter.innerText = `${wrong}`
+  questionCounter.innerText = `${question}`
+
+  let counterButton = 0;
+
+  // Функции добавления подсказки
+  function handleInput(event) {
+    const formButton = document.querySelector('.form_button')
+    const value = event.target.value.trim()
+
+    if (value.length === 0 && counterButton < 2) {
+      formButton.innerText = 'Подсказка'
+    } else {
+      formButton.innerText = 'Проверить'
+    }
+  }
+  nameInput.addEventListener('input', handleInput);
+  
+  function handleOutFocus(event) {
+    const formButton = document.querySelector('.form_button')
+    const value = event.target.value.trim()
+
+    if (counterButton < 2 && value.length === 0) {
+      formButton.innerText = 'Подсказка';
+    }
+  }
+  nameInput.addEventListener('blur', handleOutFocus);
+
+
+  // Функция логики ответов и удаляет стандартное поведение поля input
+  function checkUserInput(event) {
+    const formButton = document.querySelector('.form_button')
+
+    // Предотвращаем отправку формы и перезагрузку страницы
+    if (event) event.preventDefault();
+    const userInput = nameInput.value.trim();
+
+    // Логика игры на действия игрока
+    if (userInput === '' && counterButton === 0) {
+      formText.innerText = `Первая буква: ${doorName[0]}`;
+      formButton.innerText = `Подсказка`;
+      question += 1;
+      counterButton += 1;
+    }
+    // Код второй подсказки (слишком легко)
+    else if (userInput === '' && counterButton === 1) {
+      question += 1;
+      let result = '';
+      for (let i = 1; i < doorName.length - 1; i++) {
+        if (doorName[i] === ' ') {
+          result += '  ';
+        } else {
+          result += '.';
+        }
+      }
+      formText.innerText = `${doorName[0]}${result}${doorName[doorName.length - 1]}`;
+      counterButton += 1;
+      formButton.innerText = `Проверка`;
+    }
+
+    else if (userInput === '' && counterButton === 2) {
+      wrong += 1
+      formText.innerText = `${doorName}`;
+      answerNotRigth.setAttribute('style', 'display: block');
+      setTimeout(() => {
+        answerNotRigth.setAttribute('style', 'display: none;');
+        activateTraining()
+        formText.innerText = `Угадай дверь:`;
+      }, 2000);
+    }
+    else if (userInput.toLowerCase() === doorName.toLowerCase()) {
+      rigth += 1
+      nameInput.value = '';
+      answerRigth.setAttribute('style', 'display: block;');
+      setTimeout(() => {
+        answerRigth.setAttribute('style', 'display: none;');
+        activateTraining()
+        formText.innerText = `Угадай дверь:`;
+      }, 2000);
+
+    } else {
+      wrong += 1
+      formText.innerText = `${doorName}`;
+      console.log('Неправильно. Ожидалось:', doorName, 'Получено:', userInput);
+      nameInput.value = '';
+      answerNotRigth.setAttribute('style', 'display: block');
+      setTimeout(() => {
+        answerNotRigth.setAttribute('style', 'display: none;');
+        activateTraining()
+        formText.innerText = `Угадай дверь:`;
+      }, 2000);
+    }
+  }
+
+  const checkButton = document.getElementById('checkButton');
+  const newCheckButton = checkButton.cloneNode(true);
+  checkButton.parentNode.replaceChild(newCheckButton, checkButton);
+  // Добавляем обработчик на кнопку
+  document.getElementById('checkButton').addEventListener('click', function (event) {
+    // Предотвращаем поведение по умолчанию для кнопки в форме
+    event.preventDefault();
+    checkUserInput(event);
+  });
+  // Также предотвращаем отправку формы по нажатию Enter
+  nameInput.addEventListener('keypress', function (event) {
+    if (event.key === 'Enter') {
+      event.preventDefault();
+      checkUserInput(event);
+    }
+  });
+};
+
