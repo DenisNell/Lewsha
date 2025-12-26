@@ -544,23 +544,23 @@ a {
   }
 
   .game_training {
-    top: 20%;
+    top: 15%;
   }
 
   .game_game {
-    top: 30%;
+    top: 25%;
   }
 
   .game_exam {
-    top: 40%;
+    top: 35%;
   }
 
   .game_info {
-    top: 65%;
+    top: 60%;
   }
 
   .game_exit {
-    top: 75%;
+    top: 70%;
   }
 
   .game_tainingText,
@@ -720,11 +720,11 @@ a {
     display: block;
     width: 100%;
     height: auto;
-    box-shadow: 5px 5px 10px 5px #242323;
+    box-shadow: 5px 5px 15px 5px #242323;
 }
 
 .game_doorsNameBox{
-  max-width: 310px;
+  max-width: 320px;
   display: none;
   margin-top: 65px;
   gap: 10px;
@@ -797,7 +797,7 @@ a {
   .counter_box {
     display: none;
     position: fixed;
-    gap: 40px;
+    gap: 30px;
     margin-top: 8px;
     z-index: 1000;
     justify-content: center;

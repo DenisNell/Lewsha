@@ -226,6 +226,8 @@ const imagePool = [
   { src: 'img/lajn_2-do.jpg', door: 'Лайн2' },
   // Лайн4
   { src: 'img/lajn_4-dg.jpg', door: 'Лайн4' },
+  // Лайн4
+  { src: 'img/lajn_5-dg.jpg', door: 'Лайн5' },
   // Мередиан
   { src: 'img/meridian-dg.jpg', door: 'Мередиан' },
   // Монте Карло
@@ -339,23 +341,54 @@ gameExit.addEventListener('click', () => {
   location.reload();
 });
 
+const gameDoorsNameBox = document.querySelector('.game_doorsNameBox')
 buttonGame.addEventListener('click', () => {
-  location.reload();
-});
-
-menuGame.addEventListener('click', () => {
+  resetGame()
+  gameDoorsNameBox.style.display ='none'
+  counterBox.style.display = 'none';
+  heartsContainer.style.display = 'none'
+  form.setAttribute('style', 'display: none;');
   element.scrollIntoView();
   activateGameMode();
+  menuBox.style.display = 'none'
   gameStartMenu.style.display = 'block'
 
   gameTraining.addEventListener('click', () => {
+    menuBox.style.display = 'block'
     counterBox.style.display = 'flex';
     form.setAttribute('style', 'display: block;');
     gameStartMenu.style.display = 'none'
     activateTraining()
     menuBox.style.background = '#f0dfc8'
   })
+
   gameGame.addEventListener('click', () => {
+    menuBox.style.display = 'block'
+    heartsContainer.style.display = 'flex'
+    form.setAttribute('style', 'display: block;');
+    gameStartMenu.style.display = 'none'
+    activateGame()
+    menuBox.style.background = '#f0dfc8'
+  })
+});
+
+menuGame.addEventListener('click', () => {
+  element.scrollIntoView();
+  activateGameMode();
+  menuBox.style.display = 'none'
+  gameStartMenu.style.display = 'block'
+
+  gameTraining.addEventListener('click', () => {
+    menuBox.style.display = 'block'
+    counterBox.style.display = 'flex';
+    form.setAttribute('style', 'display: block;');
+    gameStartMenu.style.display = 'none'
+    activateTraining()
+    menuBox.style.background = '#f0dfc8'
+  })
+
+  gameGame.addEventListener('click', () => {
+    menuBox.style.display = 'block'
     heartsContainer.style.display = 'flex'
     form.setAttribute('style', 'display: block;');
     gameStartMenu.style.display = 'none'
@@ -390,8 +423,6 @@ function activateGame() {
     let imageObject = newArray[nextCard];
     let imagePath = imageObject.src;  // Путь к изображению
     doorName = imageObject.door;  // Название двери
-    console.log(`Имя двери: ${doorName}`)
-    console.log(newArray)
     displayDiv.innerHTML = `
     <div>
       <img src="${imagePath}" alt="">          
@@ -536,8 +567,6 @@ function activateGame() {
       else {
         formButton.style.pointerEvents = 'none';
         formText.innerText = `${doorName}`;
-        console.log(`Получено: ${userInput} неправильно`);
-        console.log(`Осталось жизней ${life}`)
         answerNotRigth.setAttribute('style', 'display: block');
         setTimeout(() => {
           formButton.style.pointerEvents = 'auto';
@@ -614,10 +643,9 @@ function activateTraining() {
     return result.sort(() => Math.random() - 0.5);
   }
   getRandomDoorNames()
-  console.log(result)
 
   // добавляем текущие двери в HTML
-  const gameDoorsNameBox = document.querySelector('.game_doorsNameBox')
+  // const gameDoorsNameBox = document.querySelector('.game_doorsNameBox')
   gameDoorsNameBox.style.display = 'flex'
 
   const doorsNameBox = document.querySelector('.game_doorsNameBox');
@@ -636,7 +664,6 @@ function activateTraining() {
       // Сравниваем выбранное название с текущим doorName
       if (selectedDoorName === doorName) {
         rigth += 1
-        console.log('Правильно!', selectedDoorName);
         this.style.backgroundColor = '#4CAF50';
         this.style.color = 'white';
         document.querySelectorAll('.door-name-item').forEach(doorItem => {
@@ -653,7 +680,6 @@ function activateTraining() {
 
       } else {
         wrong += 1
-        console.log('Неправильно!', 'Правильный ответ:', doorName);
         this.style.backgroundColor = '#F44336';
         this.style.color = 'white';
         document.querySelectorAll('.door-name-item').forEach(doorItem => {
