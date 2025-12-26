@@ -795,13 +795,23 @@ a {
   .counter_box {
     display: none;
     position: fixed;
-    gap: 10px;
-    margin-top: 5px;
+    gap: 50px;
+    margin-top: 8px;
     z-index: 1000;
     justify-content: space-between;
+    text-shadow: 0 0 10px #f26a02;
   }
   .question_box{
-    display: block;
+    display: none;
+  }
+  .rigth_box,
+  .wrong_box {
+    display: flex;
+    gap: 10px;
+    border: 1px solid #f0812c;
+    padding: 5px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px #f26a02;
   }
 
   .rigth_counter,

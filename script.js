@@ -382,8 +382,6 @@ function activateGameMode() {
 
 function activateGame() {
   isGameActive = true;
-  const questionBox = document.querySelector('.question_box')
-  questionBox.style.display = 'none'
 
   // Заполняем div случайным изображением
   function displayInExistingElement() {
