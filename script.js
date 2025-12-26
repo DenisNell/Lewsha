@@ -161,10 +161,12 @@ const gameInfo = document.querySelector('.game_info')
 const gameExit = document.querySelector('.game_exit')
 const element = document.getElementById('afina');
 
-gameInfo.addEventListener('click', () => {  
+gameInfo.addEventListener('click', () => {
   rulesGame.style.display = 'block'
+  // gameShadow.style.display = 'block'
   rulesButton.addEventListener('click', () => {
     rulesGame.style.display = 'none'
+    // gameShadow.style.display = 'none'
   })
 })
 
@@ -375,11 +377,16 @@ function activateGameMode() {
 }
 
 //Активация игры
+//Активация игры
+//Активация игры
+
 function activateGame() {
   isGameActive = true;
+  const questionBox = document.querySelector('.question_box')
+  questionBox.style.display = 'none'
 
   // Заполняем div случайным изображением
-  function displayInExistingElement() {    
+  function displayInExistingElement() {
     const displayDiv = document.getElementById('randomImageDisplay');
     if (!displayDiv) return;
     let imageObject = newArray[nextCard];
@@ -457,9 +464,10 @@ function activateGame() {
       life -= 1
       hearts.loseHeart();
       if (life === 0) {
-        // lifeBox.innerText = `Осталось жизней: ${life}`
         loseGame.setAttribute('style', 'display: block;');
+        formButton.style.pointerEvents = 'none';
         setTimeout(() => {
+          formButton.style.pointerEvents = 'auto';
           loseGame.setAttribute('style', 'display: none;');
           resetGame();
           hearts.resetHearts()
@@ -469,13 +477,11 @@ function activateGame() {
       }
       else {
         formText.innerText = `${doorName}`;
-        // lifeBox.innerText = `Осталось жизней: ${life}`
-        console.log(`Получено: ${userInput} неправильно`);
-        console.log(`Осталось жизней ${life}`)
         answerNotRigth.setAttribute('style', 'display: block');
+        formButton.style.pointerEvents = 'none';
         setTimeout(() => {
+          formButton.style.pointerEvents = 'auto';
           answerNotRigth.setAttribute('style', 'display: none;');
-          //activateGameMode();
           activateGame()
           formText.innerText = `Дверь: ${nextCard + 1} из ${newArray.length + 1}`
         }, 2000);
@@ -487,8 +493,10 @@ function activateGame() {
       nextCard += 1
       nameInput.value = '';
       if (nextCard === newArray.length) {
+        formButton.style.pointerEvents = 'none';
         winGame.setAttribute('style', 'display: block;');
         setTimeout(() => {
+          formButton.style.pointerEvents = 'auto';
           winGame.setAttribute('style', 'display: none;');
           resetGame();
           hearts.resetHearts();
@@ -497,8 +505,10 @@ function activateGame() {
         }, 2000);
       }
       else {
+        formButton.style.pointerEvents = 'none';
         answerRigth.setAttribute('style', 'display: block;');
         setTimeout(() => {
+          formButton.style.pointerEvents = 'auto';
           answerRigth.setAttribute('style', 'display: none;');
           activateGame()
           formText.innerText = `Дверь: ${nextCard + 1} из ${newArray.length + 1}`
@@ -513,10 +523,11 @@ function activateGame() {
       nextCard += 1
       hearts.loseHeart();
       nameInput.value = '';
-      // lifeBox.innerText = `Осталось жизней: ${life}`
       if (life === 0) {
+        formButton.style.pointerEvents = 'none';
         loseGame.setAttribute('style', 'display: block;');
         setTimeout(() => {
+          formButton.style.pointerEvents = 'auto';
           loseGame.setAttribute('style', 'display: none;');
           resetGame();
           hearts.resetHearts()
@@ -525,15 +536,16 @@ function activateGame() {
         }, 2000);
       }
       else {
+        formButton.style.pointerEvents = 'none';
         formText.innerText = `${doorName}`;
         console.log(`Получено: ${userInput} неправильно`);
         console.log(`Осталось жизней ${life}`)
         answerNotRigth.setAttribute('style', 'display: block');
         setTimeout(() => {
+          formButton.style.pointerEvents = 'auto';
           answerNotRigth.setAttribute('style', 'display: none;');
           activateGame()
           formText.innerText = `Дверь: ${nextCard + 1} из ${newArray.length + 1}`
-          // formText.innerText = `Угадай дверь:`;
         }, 2000);
       }
     }
@@ -559,9 +571,13 @@ function activateGame() {
   });
 };
 
+// Тренировка
+// Тренировка
+// Тренировка
+
 function activateTraining() {
   isGameActive = true;
-  formText.innerText = `Угадай дверь:`
+  form.style.display = 'none'
 
   // Получаем случайное изображание
   function getRandomImageFromPool() {
@@ -573,135 +589,88 @@ function activateTraining() {
   function displayInExistingElement() {
     const displayDiv = document.getElementById('randomImageDisplay');
     if (!displayDiv) return;
+
     currentRandomImage = getRandomImageFromPool();
     doorName = currentRandomImage.door;
+
     displayDiv.innerHTML = `
-    <div style="display: inline-block; text-align: center;">
-      <img src="${currentRandomImage.src}" 
-          alt="${doorName}" 
-          style="max-width: 400px;
-          height: auto;          
-          margin-top: 15px;">          
+    <div>
+      <img src="${currentRandomImage.src}" alt="">          
     </div>
   `;
   }
   displayInExistingElement()
 
-  const formButton = document.querySelector('.form_button')
-  formButton.innerText = `Подсказка`
+  // Получаем 5 случайных названия из массива с текущей дверью
+  const result = [];
+  function getRandomDoorNames() {
+    const allDoors = [...new Set(imagePool.map(item => item.door))];
+    result.push(doorName);
+    // Удаляем текущую дверь из доступных
+    const availableDoors = allDoors.filter(door => door !== doorName);
+    // Выбираем еще 5 случайных названия
+    for (let i = 0; i < Math.min(5, availableDoors.length); i++) {
+      const randomIndex = Math.floor(Math.random() * availableDoors.length);
+      result.push(availableDoors.splice(randomIndex, 1)[0]);
+    }
+    return result.sort(() => Math.random() - 0.5);
+  }
+  getRandomDoorNames()
+  console.log(result)
 
-  const nameInput = document.getElementById('name');
+  // добавляем текущие двери в HTML
+  const gameDoorsNameBox = document.querySelector('.game_doorsNameBox')
+  gameDoorsNameBox.style.display = 'flex'
+
+  const doorsNameBox = document.querySelector('.game_doorsNameBox');
+  doorsNameBox.innerHTML = result.map(doorName =>
+    `<div class="door-name-item" data-door-name="${doorName}">${doorName}</div>`).join('');
 
   rigthCounter.innerText = `${rigth}`
   wrongCounter.innerText = `${wrong}`
   questionCounter.innerText = `${question}`
 
-  let counterButton = 0;
+  // Добавляем обработчики событий для каждой двери
+  document.querySelectorAll('.door-name-item').forEach(item => {
+    item.addEventListener('click', function () {
+      const selectedDoorName = this.getAttribute('data-door-name');
 
-  // Функции добавления подсказки
-  function handleInput(event) {
-    const formButton = document.querySelector('.form_button')
-    const value = event.target.value.trim()
+      // Сравниваем выбранное название с текущим doorName
+      if (selectedDoorName === doorName) {
+        rigth += 1
+        console.log('Правильно!', selectedDoorName);
+        this.style.backgroundColor = '#4CAF50';
+        this.style.color = 'white';
+        document.querySelectorAll('.door-name-item').forEach(doorItem => {
+          doorItem.style.pointerEvents = 'none';
+        });
+        answerRigth.setAttribute('style', 'display: block;');
+        setTimeout(() => {
+          answerRigth.setAttribute('style', 'display: none;');
+          document.querySelectorAll('.door-name-item').forEach(doorItem => {
+            doorItem.style.pointerEvents = 'auto';
+          });
+          activateTraining()
+        }, 2000);
 
-    if (value.length === 0 && counterButton < 2) {
-      formButton.innerText = 'Подсказка'
-    } else {
-      formButton.innerText = 'Проверить'
-    }
-  }
-  nameInput.addEventListener('input', handleInput);
-  
-  function handleOutFocus(event) {
-    const formButton = document.querySelector('.form_button')
-    const value = event.target.value.trim()
-
-    if (counterButton < 2 && value.length === 0) {
-      formButton.innerText = 'Подсказка';
-    }
-  }
-  nameInput.addEventListener('blur', handleOutFocus);
-
-
-  // Функция логики ответов и удаляет стандартное поведение поля input
-  function checkUserInput(event) {
-    const formButton = document.querySelector('.form_button')
-
-    // Предотвращаем отправку формы и перезагрузку страницы
-    if (event) event.preventDefault();
-    const userInput = nameInput.value.trim();
-
-    // Логика игры на действия игрока
-    if (userInput === '' && counterButton === 0) {
-      formText.innerText = `Первая буква: ${doorName[0]}`;
-      formButton.innerText = `Подсказка`;
-      question += 1;
-      counterButton += 1;
-    }
-    // Код второй подсказки (слишком легко)
-    else if (userInput === '' && counterButton === 1) {
-      question += 1;
-      let result = '';
-      for (let i = 1; i < doorName.length - 1; i++) {
-        if (doorName[i] === ' ') {
-          result += '  ';
-        } else {
-          result += '.';
-        }
+      } else {
+        wrong += 1
+        console.log('Неправильно!', 'Правильный ответ:', doorName);
+        this.style.backgroundColor = '#F44336';
+        this.style.color = 'white';
+        document.querySelectorAll('.door-name-item').forEach(doorItem => {
+          doorItem.style.pointerEvents = 'none';
+        });
+        answerNotRigth.setAttribute('style', 'display: block');
+        setTimeout(() => {
+          answerNotRigth.setAttribute('style', 'display: none;');
+          // activateTraining()
+          document.querySelectorAll('.door-name-item').forEach(doorItem => {
+            doorItem.style.pointerEvents = 'auto';
+          });
+        }, 2000);
       }
-      formText.innerText = `${doorName[0]}${result}${doorName[doorName.length - 1]}`;
-      counterButton += 1;
-      formButton.innerText = `Проверка`;
-    }
-
-    else if (userInput === '' && counterButton === 2) {
-      wrong += 1
-      formText.innerText = `${doorName}`;
-      answerNotRigth.setAttribute('style', 'display: block');
-      setTimeout(() => {
-        answerNotRigth.setAttribute('style', 'display: none;');
-        activateTraining()
-        formText.innerText = `Угадай дверь:`;
-      }, 2000);
-    }
-    else if (userInput.toLowerCase() === doorName.toLowerCase()) {
-      rigth += 1
-      nameInput.value = '';
-      answerRigth.setAttribute('style', 'display: block;');
-      setTimeout(() => {
-        answerRigth.setAttribute('style', 'display: none;');
-        activateTraining()
-        formText.innerText = `Угадай дверь:`;
-      }, 2000);
-
-    } else {
-      wrong += 1
-      formText.innerText = `${doorName}`;
-      console.log('Неправильно. Ожидалось:', doorName, 'Получено:', userInput);
-      nameInput.value = '';
-      answerNotRigth.setAttribute('style', 'display: block');
-      setTimeout(() => {
-        answerNotRigth.setAttribute('style', 'display: none;');
-        activateTraining()
-        formText.innerText = `Угадай дверь:`;
-      }, 2000);
-    }
-  }
-
-  const checkButton = document.getElementById('checkButton');
-  const newCheckButton = checkButton.cloneNode(true);
-  checkButton.parentNode.replaceChild(newCheckButton, checkButton);
-  // Добавляем обработчик на кнопку
-  document.getElementById('checkButton').addEventListener('click', function (event) {
-    // Предотвращаем поведение по умолчанию для кнопки в форме
-    event.preventDefault();
-    checkUserInput(event);
+    });
   });
-  // Также предотвращаем отправку формы по нажатию Enter
-  nameInput.addEventListener('keypress', function (event) {
-    if (event.key === 'Enter') {
-      event.preventDefault();
-      checkUserInput(event);
-    }
-  });
+
 };
-
