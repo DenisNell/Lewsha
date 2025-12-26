@@ -607,7 +607,7 @@ function activateTraining() {
     // Удаляем текущую дверь из доступных
     const availableDoors = allDoors.filter(door => door !== doorName);
     // Выбираем еще 5 случайных названия
-    for (let i = 0; i < Math.min(5, availableDoors.length); i++) {
+    for (let i = 0; i < Math.min(4, availableDoors.length); i++) {
       const randomIndex = Math.floor(Math.random() * availableDoors.length);
       result.push(availableDoors.splice(randomIndex, 1)[0]);
     }

@@ -724,13 +724,15 @@ a {
 }
 
 .game_doorsNameBox{
+  max-width: 310px;
   display: none;
   margin-top: 65px;
   gap: 10px;
   flex-wrap: wrap;
   justify-content: center;
-  max-width: 350px;
 }
+
+
 .door-name-item{
   font-size: 20px;
   border: 1px solid #000;
@@ -795,10 +797,10 @@ a {
   .counter_box {
     display: none;
     position: fixed;
-    gap: 50px;
+    gap: 40px;
     margin-top: 8px;
     z-index: 1000;
-    justify-content: space-between;
+    justify-content: center;
     text-shadow: 0 0 10px #f26a02;
   }
   .question_box{
