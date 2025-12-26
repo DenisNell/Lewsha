@@ -344,6 +344,7 @@ gameExit.addEventListener('click', () => {
 const gameDoorsNameBox = document.querySelector('.game_doorsNameBox')
 buttonGame.addEventListener('click', () => {
   resetGame()
+  hearts.resetHearts()
   gameDoorsNameBox.style.display ='none'
   counterBox.style.display = 'none';
   heartsContainer.style.display = 'none'
@@ -415,6 +416,7 @@ function activateGameMode() {
 
 function activateGame() {
   isGameActive = true;
+  formText.innerText = `Дверь: ${nextCard + 1} из ${newArray.length + 1}`
 
   // Заполняем div случайным изображением
   function displayInExistingElement() {
