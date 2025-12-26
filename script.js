@@ -14,6 +14,7 @@ const burgerMenu = document.getElementById('burgerMenu');
 const menuContainer = document.querySelector('.menu_containerLink');
 const menuLinks = document.querySelectorAll('.menu_link');
 const menuGame = document.querySelector('.menu_game')
+const menuLogo = document.querySelector('.menu_logo')
 
 // Функции для переключения кнопок меню и скрыть картинки по выбору
 function updateDefaultImages() {
@@ -69,6 +70,8 @@ function toggleMenu() {
   burgerMenu.classList.toggle('active');
   mainShadow.classList.toggle('active');
   menuGame.classList.toggle('active')
+  menuLogo.classList.toggle('active')
+
   // Блокировка прокрутки body при открытом меню
   document.body.style.overflow = menuContainer.classList.contains('active') ? 'hidden' : '';
 }
@@ -139,7 +142,6 @@ const form = document.querySelector('.form_box')
 const answerRigth = document.querySelector('.answer_rigth')
 const answerNotRigth = document.querySelector('.answer_not-rigth')
 const counterBox = document.querySelector('.counter_box')
-const menuLogo = document.querySelector('.menu_logo')
 const rulesGame = document.querySelector('.rules_game')
 const rulesButton = document.querySelector('.rules_button')
 const main = document.querySelector('.main')
@@ -149,13 +151,22 @@ const wrongCounter = document.querySelector('.wrong_counter')
 const questionCounter = document.querySelector('.question_counter')
 const loseGame = document.querySelector('.lose_game')
 const gameShadow = document.querySelector('.game')
-// const lifeBox = document.querySelector('.life_box')
 const heartsContainer = document.querySelector('.hearts-container')
 const winGame = document.querySelector('.win_game')
 const gameStartMenu = document.querySelector('.game_startMenu')
 const gameTraining = document.querySelector('.game_training')
 const gameGame = document.querySelector('.game_game')
 const menuBox = document.querySelector('.menubox')
+const gameInfo = document.querySelector('.game_info')
+const gameExit = document.querySelector('.game_exit')
+const element = document.getElementById('afina');
+
+gameInfo.addEventListener('click', () => {  
+  rulesGame.style.display = 'block'
+  rulesButton.addEventListener('click', () => {
+    rulesGame.style.display = 'none'
+  })
+})
 
 let isGameActive = false;
 let rigth = 0;
@@ -322,13 +333,16 @@ function resetGame() {
   newArray = shuffleArray(imagePool); // Перемешиваем карточки заново
 }
 
+gameExit.addEventListener('click', () => {
+  location.reload();
+});
+
 buttonGame.addEventListener('click', () => {
   location.reload();
 });
 
 menuGame.addEventListener('click', () => {
-  // gameShadow.classList.add('active')
-  // rulesGame.style.display = 'block'
+  element.scrollIntoView();
   activateGameMode();
   gameStartMenu.style.display = 'block'
 
@@ -346,15 +360,6 @@ menuGame.addEventListener('click', () => {
     activateGame()
     menuBox.style.background = '#f0dfc8'
   })
-
-  // rulesButton.addEventListener('click', () => {
-  //   // rulesGame.style.display = 'none'
-  //   // gameShadow.classList.remove('active');
-  // })
-  
-  // if (!isGameActive) {
-  //   activateGame();
-  // }
 });
 
 //Активация игрового режима
@@ -367,15 +372,11 @@ function activateGameMode() {
   burgerMenu.setAttribute('style', 'display: none;');
   buttonGame.setAttribute('style', 'display: flex;');
   menuContainer.classList.remove('active');
-  
-  // lifeBox.style.display = 'none'
-  
 }
 
 //Активация игры
 function activateGame() {
   isGameActive = true;
-  // lifeBox.innerText = `Осталось жизней: ${life}`
 
   // Заполняем div случайным изображением
   function displayInExistingElement() {    
@@ -387,12 +388,8 @@ function activateGame() {
     console.log(`Имя двери: ${doorName}`)
     console.log(newArray)
     displayDiv.innerHTML = `
-    <div style="display: inline-block; text-align: center;">
-      <img src="${imagePath}" 
-          alt="${doorName}" 
-          style="max-width: 400px;
-          height: auto;          
-          margin-top: 25px;">          
+    <div>
+      <img src="${imagePath}" alt="">          
     </div>
   `;
   }
