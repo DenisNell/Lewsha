@@ -160,6 +160,7 @@ const menuBox = document.querySelector('.menubox')
 const gameInfo = document.querySelector('.game_info')
 const gameExit = document.querySelector('.game_exit')
 const element = document.getElementById('afina');
+const background = document.querySelector('.background')
 
 gameInfo.addEventListener('click', () => {
   rulesGame.style.display = 'block'
@@ -355,6 +356,7 @@ buttonGame.addEventListener('click', () => {
   gameStartMenu.style.display = 'block'
 
   gameTraining.addEventListener('click', () => {
+    background.classList.add('active')
     menuBox.style.display = 'block'
     counterBox.style.display = 'flex';
     form.setAttribute('style', 'display: block;');
@@ -364,6 +366,7 @@ buttonGame.addEventListener('click', () => {
   })
 
   gameGame.addEventListener('click', () => {
+    background.classList.add('active')
     menuBox.style.display = 'block'
     heartsContainer.style.display = 'flex'
     form.setAttribute('style', 'display: block;');
@@ -380,6 +383,7 @@ menuGame.addEventListener('click', () => {
   gameStartMenu.style.display = 'block'
 
   gameTraining.addEventListener('click', () => {
+    background.classList.add('active')
     menuBox.style.display = 'block'
     counterBox.style.display = 'flex';
     form.setAttribute('style', 'display: block;');
@@ -389,6 +393,7 @@ menuGame.addEventListener('click', () => {
   })
 
   gameGame.addEventListener('click', () => {
+    background.classList.add('active')
     menuBox.style.display = 'block'
     heartsContainer.style.display = 'flex'
     form.setAttribute('style', 'display: block;');
@@ -658,11 +663,16 @@ function activateTraining() {
   wrongCounter.innerText = `${wrong}`
   questionCounter.innerText = `${question}`
 
+
+  const doorNameItem = document.querySelector('.door-name-item')
   // Добавляем обработчики событий для каждой двери
   document.querySelectorAll('.door-name-item').forEach(item => {
     item.addEventListener('click', function () {
       const selectedDoorName = this.getAttribute('data-door-name');
 
+      doorNameItem.style.backgroundColor = 'white'
+
+      this.style.backgroundColor = 'white';
       // Сравниваем выбранное название с текущим doorName
       if (selectedDoorName === doorName) {
         rigth += 1
