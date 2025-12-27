@@ -4,7 +4,7 @@ body.active{
   margin: auto;
   font-family: -apple-system, BlinkMacSystemFont, sans-serif;
   overflow: auto;
-  background: linear-gradient(315deg, rgb(246, 174, 97) 3%, rgb(197, 197, 93) 38%, rgb(136, 191, 88) 68%, rgb(250, 161, 161) 98%);
+  background: linear-gradient(315deg, rgb(246, 174, 97) 3%, rgb(197, 197, 93) 38%, rgb(145, 193, 103) 68%, rgb(250, 161, 161) 98%);
   animation: gradient 30s ease infinite;
   background-size: 400% 400%;
   background-attachment: fixed;
