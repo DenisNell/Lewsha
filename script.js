@@ -670,7 +670,7 @@ function activateTraining() {
     item.addEventListener('click', function () {
       const selectedDoorName = this.getAttribute('data-door-name');
 
-      doorNameItem.style.backgroundColor = 'white'
+      // doorNameItem.style.backgroundColor = 'white'
 
       this.style.backgroundColor = 'white';
       // Сравниваем выбранное название с текущим doorName
