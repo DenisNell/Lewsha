@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Doors</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair:ital,opsz,wght@0,5..1200,300..900;1,5..1200,300..900&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="background">
+
+  <nav class="menu">
+
+    <div class="menubox">
+
+      <div class="menu_ContainerFlex">
+
+        <!-- Логотип -->
+        <a href="#">
+          <img class="menu_logo" src="img/logo.jpg" alt="">
+        </a>
+
+        <!-- Мини игра -->
+        <div class="menu_game">
+          <p class="menu_game_title">Игра: DOORS</p>
+        </div>
+
+        <!-- Игра кнопка -->
+        <div class="burger-game" id="burgerGame">
+          <span class="burger-line"></span>
+          <span class="burger-line"></span>
+          <span class="burger-line"></span>
+        </div>
+
+        <!-- Бургер-кнопка -->
+        <div class="burger-menu" id="burgerMenu">
+          <span class="burger-line"></span>
+          <span class="burger-line"></span>
+          <span class="burger-line"></span>
+        </div>
+
+        <!-- Список дверей -->
+        <div class="menu_containerLink">
+          <div class="menu_button">
+            <button class="button_simple button">Классика</button>
+            <button class="button_patina button">Патина</button>
+            <button class="button_skin button">Скины</button>
+          </div>
+
+          <div class="menu_linkall">
+            <ul class="menu_patina">
+              <li><a href="#afrodita" class="menu_link">Афродита</a></li>
+              <li><a href="#afina" class="menu_link">Афина</a></li>
+              <li><a href="#belgia" class="menu_link">Бельгия</a></li>
+              <li><a href="#mocart" class="menu_link">Моцарт</a></li>
+              <li><a href="#san-remo" class="menu_link">Сан Ремо</a></li>
+              <li><a href="#san-trope" class="menu_link">Сан Тропе</a></li>
+            </ul>
+
+            <ul class="menu_simple">
+              <li><a href="#accord" class="menu_link">Аккорд</a></li>
+              <li><a href="#awrora" class="menu_link">Аврора</a></li>
+              <li><a href="#bordo" class="menu_link">Бордо</a></li>
+              <li><a href="#wankuwer" class="menu_link">Ванкувер</a></li>
+              <li><a href="#gamburg" class="menu_link">Гамбург</a></li>
+              <li><a href="#grandoors" class="menu_link">Грандорс</a></li>
+              <li><a href="#glanta" class="menu_link">Гланта</a></li>
+              <li><a href="#djaz" class="menu_link">Джаз</a></li>
+              <li><a href="#imidg" class="menu_link">Имидж</a></li>
+              <li><a href="#kantry" class="menu_link">Кантри</a></li>
+              <li><a href="#kianti" class="menu_link">Кьянти</a></li>
+              <li><a href="#lira" class="menu_link">Лира</a></li>
+              <li><a href="#largo" class="menu_link">Ларго</a></li>
+              <li><a href="#lain1" class="menu_link">Лайн1</a></li>
+              <li><a href="#lian2" class="menu_link">Лайн2</a></li>
+              <li><a href="#lian4" class="menu_link">Лайн4</a></li>
+              <li><a href="#lian5" class="menu_link">Лайн5</a></li>
+              <li><a href="#meredian" class="menu_link">Мередиан</a></li>
+              <li><a href="#karlo" class="menu_link">Монте Карло</a></li>
+              <li><a href="#marcel" class="menu_link">Марсель</a></li>
+              <li><a href="#rondo" class="menu_link">Рондо</a></li>
+              <li><a href="#retro" class="menu_link">Ретро</a></li>
+              <li><a href="#solo" class="menu_link">Соло</a></li>
+              <li><a href="#suita" class="menu_link">Сюита</a></li>
+              <li><a href="#singapur" class="menu_link">Сингапур</a></li>
+              <li><a href="#orlean" class="menu_link">Орлеан</a></li>
+              <li><a href="#flor" class="menu_link">Флоренция</a></li>
+              <li><a href="#chelsi" class="menu_link">Челси</a></li>
+              <li><a href="#urban" class="menu_link">Урбан</a></li>
+              <li><a href="#elegia" class="menu_link">Элегия</a></li>
+            </ul>
+
+            <ul class="menu_skin">
+              <li><a href="#ul1" class="menu_link">Ультра С1</a></li>
+              <li><a href="#ul2" class="menu_link">Ультра С2</a></li>
+              <li><a href="#ul3" class="menu_link">Ультра С3</a></li>
+              <li><a href="#ul5" class="menu_link">Ультра С5</a></li>
+              <li><a href="#ul4" class="menu_link">Ультра БС4</a></li>
+              <li><a href="#geneva" class="menu_link">Женева</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+
+
+  <section class="main">
+    <div class="container">
+      <div class="main_imageBox">
+
+        <div class="image_default">
+          <img class="pic_default" src="img/unknown.png" alt="">
+          <p class="text_default menu_link">Выбери что-нибудь :( </p>
+        </div>
+
+        <div id="afina" class="main_imageCard image_patina">
+          <img class="main_image2" src="img/afina-dg.jpg" alt="">
+          <img class="main_image1" src="img/afina-dg.jpg" alt="">
+          <p class="title">Афина</p>
+        </div>
+
+        <div id="afrodita" class="main_imageCard image_patina">
+          <img class="main_image2" src="img/afrodita-dg.jpg" alt="">
+          <img class="main_image1" src="img/afrodita-do.jpg" alt="">
+          <p class="title">Афродита</p>
+          <img class="main_icon" src="img/hand-finger.png" alt="">
+        </div>
+
+        <div id="belgia" class="main_imageCard image_patina">
+          <img class="main_image2" src="img/belgia-dg.jpg" alt="">
+          <img class="main_image1" src="img/belgia-dg.jpg" alt="">
+          <p class="title">Бельгия</p>
+        </div>
+
+        <div id="accord" class="main_imageCard image_simple">
+          <img class="main_image2" src="img/akkord-dg.jpg" alt="">
+          <img class="main_image1" src="img/akkord-do.jpg" alt="">
+          <p class="title">Аккорд</p>
+          <img class="main_icon" src="img/hand-finger.png" alt="">
+        </div>
+
+        <div id="awrora" class="main_imageCard image_simple">
+          <img class="main_image2" src="img/avrora-dg.jpg" alt="">
+          <img class="main_image1" src="img/avrora-do.jpg" alt="">
+          <p class="title">Аврора</p>
+          <img class="main_icon" src="img/hand-finger.png" alt="">
+        </div>
+
+        <div id="bordo" class="main_imageCard image_simple">
+          <img class="main_image2" src="img/bordo-dg.jpg" alt="">
+          <img class="main_image1" src="img/bordo-dg.jpg" alt="">
+          <p class="title">Бордо</p>
+        </div>
+
+        <div id="wankuwer" class="main_imageCard image_simple">
+          <img class="main_image2" src="img/wankuwer-dg.jpg" alt="">
+          <img class="main_image1" src="img/wankuwer-dg.jpg" alt="">
+          <p class="title">Ванкувер</p>
+        </div>
+
+        <div id="gamburg" class="main_imageCard image_simple">
+          <img class="main_image2" src="img/gamburg-dg.jpg" alt="">
+          <img class="main_image1" src="img/gamburg-do.jpg" alt="">
+          <p class="title">Гамбург</p>
+          <img class="main_icon" src="img/hand-finger.png" alt="">
+        </div>
+
+        <div id="grandoors" class="main_imageCard image_simple">
+          <img class="main_image2" src="img/grandors-dg.jpg" alt="">
+          <img class="main_image1" src="img/grandors-dg.jpg" alt="">
+          <p class="title">Грандорс</p>
+        </div>
+
+        <div id="glanta" class="main_imageCard image_simple">
+          <img class="main_image2" src="img/glanta-dg.jpg" alt="">
+          <img class="main_image1" src="img/glanta-do.jpg" alt="">
+          <p class="title">Гланта</p>
+          <img class="main_icon" src="img/hand-finger.png" alt="">
+        </div>
+
+        <div id="djaz" class="main_imageCard image_simple">
+          <img class="main_image2" src="img/dzhaz-dg.jpg" alt="">
+          <img class="main_image1" src="img/dzhaz-do.jpg" alt="">
+          <p class="title">Джаз</p>
+          <img class="main_icon" src="img/hand-finger.png" alt="">
+        </div>
+
+        <div id="imidg" class="main_imageCard image_simple">
+          <img class="main_image2" src="img/imidzh-dg.jpg" alt="">
+          <img class="main_image1" src="img/imidzh-do.jpg" alt="">
+          <p class="title">Имидж</p>
+          <img class="main_icon" src="img/hand-finger.png" alt="">
+        </div>
+
+        <div id="kantry" class="main_imageCard image_simple">
+          <img class="main_image2" src="img/kantri-dg.jpg" alt="">
+          <img class="main_image1" src="img/kantri-dg.jpg" alt="">
+          <p class="title">Кантри</p>
+        </div>
+
+        <div id="kianti" class="main_imageCard image_simple">
+          <img class="main_image2" src="img/kyanti-dg.jpg" alt="">
+          <img class="main_image1" src="img/kyanti-do.jpg" alt="">
+          <p class="title">Кьянти</p>
+          <img class="main_icon" src="img/hand-finger.png" alt="">
+        </div>
+
+        <div id="lira" class="main_imageCard image_simple">
+          <img class="main_image2" src="img/lira-dg.jpg" alt="">
+          <img class="main_image1" src="img/lira-do.jpg" alt="">
+          <p class="title">Лира</p>
+          <img class="main_icon" src="img/hand-finger.png" alt="">
+        </div>
+
+        <div id="largo" class="main_imageCard image_simple">
+          <img class="main_image2" src="img/largo-dg.jpg" alt="">
+          <img class="main_image1" src="img/largo-dg.jpg" alt="">
+          <p class="title">Ларго</p>
+        </div>
+
+        <div id="lain1" class="main_imageCard image_simple">
+          <img class="main_image2" src="img/lajn_1-dg.jpg" alt="">
+          <img class="main_image1" src="img/lajn_1-do.jpg" alt="">
+          <p class="title">Лайн1</p>
+          <img class="main_icon" src="img/hand-finger.png" alt="">
+        </div>
+
+        <div id="lian2" class="main_imageCard image_simple">
+          <img class="main_image2" src="img/lajn_2-do.jpg" alt="">
+          <img class="main_image1" src="img/lajn_2-do.jpg" alt="">
+          <p class="title">Лайн2</p>
+        </div>
+
+        <div id="lian4" class="main_imageCard image_simple">
+          <img class="main_image2" src="img/lajn_4-dg.jpg" alt="">
+          <img class="main_image1" src="img/lajn_4-dg.jpg" alt="">
+          <p class="title">Лайн4</p>
+        </div>
+
+        <div id="lian5" class="main_imageCard image_simple">
+          <img class="main_image2" src="img/lajn_5-dg.jpg" alt="">
+          <img class="main_image1" src="img/lajn_5-do.jpg" alt="">
+          <p class="title">Лайн5</p>
+          <img class="main_icon" src="img/hand-finger.png" alt="">
+        </div>
+
+        <div id="meredian" class="main_imageCard image_simple">
+          <img class="main_image2" src="img/meridian-dg.jpg" alt="">
+          <img class="main_image1" src="img/meridian-dg.jpg" alt="">
+          <p class="title">Мередиан</p>
+        </div>
+
+        <div id="karlo" class="main_imageCard image_simple">
+          <img class="main_image2" src="img/monte_karlo-dg.jpg" alt="">
+          <img class="main_image1" src="img/monte_karlo-do.jpg" alt="">
+          <p class="title">Монте Карло</p>
+          <img class="main_icon" src="img/hand-finger.png" alt="">
+        </div>
+
+        <div id="mocart" class="main_imageCard image_patina">
+          <img class="main_image2" src="img/mocart-dg.jpg" alt="">
+          <img class="main_image1" src="img/mocart-do.jpg" alt="">
+          <p class="title">Моцарт</p>
+          <img class="main_icon" src="img/hand-finger.png" alt="">
+        </div>
+
+        <div id="marcel" class="main_imageCard image_simple">
+          <img class="main_image2" src="img/marcel-dg.jpg" alt="">
+          <img class="main_image1" src="img/marcel-dg.jpg" alt="">
+          <p class="title">Марсель</p>
+        </div>
+
+        <div id="rondo" class="main_imageCard image_simple">
+          <img class="main_image2" src="img/rondo-dg.jpg" alt="">
+          <img class="main_image1" src="img/rondo-do.jpg" alt="">
+          <p class="title">Рондо</p>
+          <img class="main_icon" src="img/hand-finger.png" alt="">
+        </div>
+
+        <div id="retro" class="main_imageCard image_simple">
+          <img class="main_image2" src="img/retro-dg.jpg" alt="">
+          <img class="main_image1" src="img/retro-do.jpg" alt="">
+          <p class="title">Ретро</p>
+          <img class="main_icon" src="img/hand-finger.png" alt="">
+        </div>
+
+        <div id="san-remo" class="main_imageCard image_patina">
+          <img class="main_image2" src="img/san_remo-dg.jpg" alt="">
+          <img class="main_image1" src="img/san_remo-dg.jpg" alt="">
+          <p class="title">Сан Ремо</p>
+        </div>
+
+        <div id="san-trope" class="main_imageCard image_patina">
+          <img class="main_image2" src="img/san_trope-do.jpg" alt="">
+          <img class="main_image1" src="img/san_trope-do.jpg" alt="">
+          <p class="title">Сан Тропе </p>
+        </div>
+
+        <div id="solo" class="main_imageCard image_simple">
+          <img class="main_image2" src="img/solo-dg.jpg" alt="">
+          <img class="main_image1" src="img/solo-dg.jpg" alt="">
+          <p class="title">Соло</p>
+        </div>
+
+        <div id="suita" class="main_imageCard image_simple">
+          <img class="main_image2" src="img/syuita-dg.jpg" alt="">
+          <img class="main_image1" src="img/syuita-do.jpg" alt="">
+          <p class="title">Сюита</p>
+          <img class="main_icon" src="img/hand-finger.png" alt="">
+        </div>
+
+        <div id="singapur" class="main_imageCard image_simple">
+          <img class="main_image2" src="img/singapur-dg.jpg" alt="">
+          <img class="main_image1" src="img/singapur-dg.jpg" alt="">
+          <p class="title">Сингапур</p>
+        </div>
+
+        <div id="orlean" class="main_imageCard image_simple">
+          <img class="main_image2" src="img/orlean-dg.jpg" alt="">
+          <img class="main_image1" src="img/orlean-dg.jpg" alt="">
+          <p class="title">Орлеан</p>
+        </div>
+
+        <div id="flor" class="main_imageCard image_simple">
+          <img class="main_image2" src="img/floren-dg.jpg" alt="">
+          <img class="main_image1" src="img/floren-dg.jpg" alt="">
+          <p class="title">Флоренция</p>
+        </div>
+
+        <div id="chelsi" class="main_imageCard image_simple">
+          <img class="main_image2" src="img/chelsi-dg.jpg" alt="">
+          <img class="main_image1" src="img/chelsi-do.jpg" alt="">
+          <p class="title">Челси</p>
+          <img class="main_icon" src="img/hand-finger.png" alt="">
+        </div>
+
+        <div id="urban" class="main_imageCard image_simple">
+          <img class="main_image2" src="img/urban-dg.jpg" alt="">
+          <img class="main_image1" src="img/urban-dg.jpg" alt="">
+          <p class="title">Урбан</p>
+        </div>
+
+        <div id="elegia" class="main_imageCard image_simple">
+          <img class="main_image2" src="img/elegiya-dg.jpg" alt="">
+          <img class="main_image1" src="img/elegiya-do.jpg" alt="">
+          <p class="title">Элегия</p>
+          <img class="main_icon" src="img/hand-finger.png" alt="">
+        </div>
+
+        <div id="ul1" class="image_skin main_imageCard">
+          <img class="main_image2" src="img/ultra_c1-dg.jpg" alt="">
+          <img class="main_image1" src="img/ultra_c1-do.jpg" alt="">
+          <p class="title">Ультра С1</p>
+          <img class="main_icon" src="img/hand-finger.png" alt="">
+        </div>
+
+        <div id="ul2" class="image_skin main_imageCard">
+          <img class="main_image2" src="img/ultra_c2-dg.jpg" alt="">
+          <img class="main_image1" src="img/ultra_c2-do.jpg" alt="">
+          <p class="title">Ультра С2</p>
+          <img class="main_icon" src="img/hand-finger.png" alt="">
+        </div>
+
+        <div id="ul3" class="image_skin main_imageCard">
+          <img class="main_image2" src="img/ultra_c3-dg.jpg" alt="">
+          <img class="main_image1" src="img/ultra_s3-do.jpg" alt="">
+          <p class="title">Ультра С3</p>
+          <img class="main_icon" src="img/hand-finger.png" alt="">
+        </div>
+
+        <div id="ul5" class="image_skin main_imageCard">
+          <img class="main_image2" src="img/ultra_s5-dg.jpg" alt="">
+          <img class="main_image1" src="img/ultra_s5-do.jpg" alt="">
+          <p class="title">Ультра С5</p>
+          <img class="main_icon" src="img/hand-finger.png" alt="">
+        </div>
+
+        <div id="ul4" class="image_skin main_imageCard">
+          <img class="main_image2" src="img/ultra_bs4-dg.jpg" alt="">
+          <img class="main_image1" src="img/ultra_bs4-do.jpg" alt="">
+          <p class="title">Ультра БС4</p>
+          <img class="main_icon" src="img/hand-finger.png" alt="">
+        </div>
+
+        <div id="geneva" class="image_skin main_imageCard">
+          <img class="main_image2" src="img/geneva-dg.jpg" alt="">
+          <img class="main_image1" src="img/geneva-do.jpg" alt="">
+          <p class="title">Женева</p>
+          <img class="main_icon" src="img/hand-finger.png" alt="">
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="rules">
+    <div class="rules_game">
+      <p class="rules_text"> Добро пожаловать в игру "DOORS". Вам надо правильно угадать название двери. <br><br>
+        'Тренировка' - бесконечный режим, двери показываются в случайном порядке. Есть шанс повтора или вообще не
+        встретить нужную. Выбор ответа из доступных подсказок. <br> <br> 'Игра' - более сложный режим. Вам доступны три жизни, одна подсказка и вам
+        гарантированно покажут все двери в случайном порядке. Название надо писать самому.<br><br>Version 2.2
+      </p>
+      <button class="rules_button">OK</button>
+    </div>
+  </section>
+
+  <section class="game">
+
+    <div class="game_startMenu">
+      <div class="game_training">
+        <p class="game_tainingText">Тренировка</p>
+      </div>
+      <div class="game_game">
+        <p class="game_gameText">Игра</p>
+      </div>
+      <div class="game_exam">
+        <p class="game_examText">Эксперт</p>
+      </div>
+      <div class="game_info">
+        <p class="game_infoText">Инфо</p>
+      </div>
+      <div class="game_exit">
+        <p class="game_exitText">Выход</p>
+      </div>
+    </div>
+
+    <div class="game_box">
+
+      <div class="hearts-container">
+        <div class="heart" data-heart="1">❤️</div>
+        <div class="heart" data-heart="2">❤️</div>
+        <div class="heart" data-heart="3">❤️</div>
+      </div>
+
+      <div class="game_doorsNameBox">
+        <!-- После вызова getRandomDoorNames() здесь будут 5 названий дверей -->
+      </div>
+
+      <div class="counter_box">
+        <div class="rigth_box">
+          <p class="rigth_text">Верно:</p>
+          <div class="rigth_counter"></div>
+        </div>
+        <div class="question_box">
+          <p class="question_text">Подсказок:</p>
+          <div class="question_counter"></div>
+        </div>
+        <div class="wrong_box">
+          <p class="wrong_text">Не верно:</p>
+          <div class="wrong_counter"></div>
+        </div>
+      </div>
+
+      <div class="form_box">
+        <form class="form" action="">
+          <p class="form_text">Угадай дверь:</p>
+          <div class="form_input_button">
+            <input id="name" class="form_input" type="text" placeholder="...">
+            <button id="checkButton" class="form_button" type="submit">Подсказка</button>
+          </div>
+        </form>
+      </div>
+
+      <div id="randomImageDisplay">
+        <!-- Сюда будет вставлено изображение -->
+      </div>
+
+      <div class="answer_rigth">
+        <p class="text_answer-rigth">Верно!</p>
+      </div>
+
+      <div class="answer_not-rigth">
+        <p class="text_answer_not-rigth">Ошибка!</p>
+      </div>
+
+      <div class="lose_game">
+        <p class="lose_text">Неудача</p>
+      </div>
+
+      <div class="win_game">
+        <p class="win_text">Победа!</p>
+      </div>
+
+    </div>
+  </section>
+
+  <div class="pc_block">
+    <img class="pc_image" src="img/unknown.png" alt="">
+    <p class="pc_text">Данное приложение разработано для мобильных устройств. <br><br> Перейдите на телефон или планшет,
+      или уменьшите размер браузера</p>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
